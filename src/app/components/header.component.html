@@ -1,0 +1,26 @@
+<nav style="position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.1); z-index: 1000; padding: 0;">
+  <div class="nav-container" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px;">
+    <img src="../../assets/logo.png" class="h-20" alt="logo">
+    <div style="display: flex; gap: 40px; align-items: center;">
+      <a (click)="scrollTo('home')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s; position: relative;" 
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Home</a>
+      <a (click)="scrollTo('about')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">About</a>
+      <a (click)="scrollTo('services')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Services</a>
+      <a (click)="scrollTo('doctors')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Doctors</a>
+      <a (click)="scrollTo('health-packages')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Health Packages</a>
+      <a (click)="scrollTo('appointments')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Book</a>
+      <a (click)="scrollTo('contact')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Contact</a>
+    </div>
+    <button (click)="scrollTo('appointments')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); display: flex; align-items: center; gap: 8px;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.6)'"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">
+      Book Appointment
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,37 @@
+<div style="position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 16px; z-index: 1000;">
+  <!-- Book Appointment Button -->
+  <div style="position: relative; display: flex; align-items: center; justify-content: flex-end;">
+    <div style="background: rgba(0,0,0,0.8); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; margin-right: 12px; opacity: 0; transform: translateX(20px); transition: all 0.3s; backdrop-filter: blur(10px); white-space: nowrap;" class="tooltip-text">
+      Book Appointment
+    </div>
+    <button (click)="scrollTo('appointments')" class="floating-button" style="width: 56px; height: 56px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: none; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4); transition: all 0.3s; display: flex; align-items: center; justify-content: center;"
+            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 32px rgba(16, 185, 129, 0.6)'; this.parentElement.querySelector('.tooltip-text').style.opacity='1'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(0)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 24px rgba(16, 185, 129, 0.4)'; this.parentElement.querySelector('.tooltip-text').style.opacity='0'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(20px)'">
+      📅
+    </button>
+  </div>
+  
+  <!-- Health Checkup Button -->
+  <div style="position: relative; display: flex; align-items: center; justify-content: flex-end;">
+    <div style="background: rgba(0,0,0,0.8); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; margin-right: 12px; opacity: 0; transform: translateX(20px); transition: all 0.3s; backdrop-filter: blur(10px); white-space: nowrap;" class="tooltip-text">
+      Health Checkup
+    </div>
+    <button (click)="scrollTo('health-packages')" class="floating-button" style="width: 56px; height: 56px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: none; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4); transition: all 0.3s; display: flex; align-items: center; justify-content: center;"
+            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 32px rgba(245, 158, 11, 0.6)'; this.parentElement.querySelector('.tooltip-text').style.opacity='1'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(0)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 24px rgba(245, 158, 11, 0.4)'; this.parentElement.querySelector('.tooltip-text').style.opacity='0'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(20px)'">
+      🩺
+    </button>
+  </div>
+  
+  <!-- Enquire Now Button -->
+  <div style="position: relative; display: flex; align-items: center; justify-content: flex-end;">
+    <div style="background: rgba(0,0,0,0.8); color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; margin-right: 12px; opacity: 0; transform: translateX(20px); transition: all 0.3s; backdrop-filter: blur(10px); white-space: nowrap;" class="tooltip-text">
+      Enquire Now
+    </div>
+    <button (click)="scrollTo('contact')" class="floating-button" style="width: 56px; height: 56px; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border: none; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4); transition: all 0.3s; display: flex; align-items: center; justify-content: center;"
+            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 32px rgba(139, 92, 246, 0.6)'; this.parentElement.querySelector('.tooltip-text').style.opacity='1'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(0)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 24px rgba(139, 92, 246, 0.4)'; this.parentElement.querySelector('.tooltip-text').style.opacity='0'; this.parentElement.querySelector('.tooltip-text').style.transform='translateX(20px)'">
+      💬
+    </button>
+  </div>
+</div>

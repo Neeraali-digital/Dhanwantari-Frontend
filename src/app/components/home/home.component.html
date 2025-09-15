@@ -1,14 +1,100 @@
-<div class="bg-gradient-to-br from-blue-900 to-teal-700 text-white min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-    <div class="text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">Your Health, Our Priority</h1>
-      <p class="text-2xl mb-4 text-blue-100">CARE. COMPASSION. COMMUNITY.</p>
-      <p class="text-xl mb-8 text-blue-200 max-w-2xl mx-auto">
-        Providing exceptional healthcare services with compassion and dedication to our community for over 25 years.
-      </p>
-      <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg text-xl font-semibold transition-colors">
-        Book an Appointment
-      </button>
+<!-- Hero Section -->
+<section class="hero !bg-cover "
+style="background-image: url('../../../assets/bg.jpg');"
+>
+  <div class=" !bg-black/40 p-5 rounded-md">
+    <h1 class="text-7xl font-extrabold text-nowrap text-white">Dhanwantari Hospital</h1>
+    <!-- <p class="hero-subtitle">Care. Compassion. Community.</p> -->
+    <p class="hero-description">Providing world-class healthcare with modern facilities and expert medical professionals</p>
+    <div class="hero-buttons">
+      <button class="btn-primary">Book Appointment</button>
+      <button class="btn-secondary">Emergency Care</button>
     </div>
   </div>
-</div>
+</section>
+
+<!-- Specialties Slider -->
+<section class="specialties">
+  <div class="container">
+    <h2 class="section-title">Our Medical Specialties</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" (click)="prevSlide()">‹</button>
+      <div class="slider">
+        <div class="slide-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+          <div class="slide" *ngFor="let specialty of specialties">
+            <div class="specialty-card">
+              <div class="specialty-icon">{{ specialty.icon }}</div>
+              <h3>{{ specialty.name }}</h3>
+              <p>{{ specialty.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next" (click)="nextSlide()">›</button>
+    </div>
+    <div class="slider-dots">
+      <span 
+        class="dot" 
+        *ngFor="let specialty of specialties; let i = index"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)">
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Services Overview -->
+<section class="services-overview">
+  <div class="container">
+    <h2 class="section-title">Why Choose Dhanwantari Hospital?</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon">🔬</div>
+        <h3>Advanced Technology</h3>
+        <p>State-of-the-art medical equipment and diagnostic tools</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">👨‍⚕️</div>
+        <h3>Expert Doctors</h3>
+        <p>Highly qualified specialists with years of experience</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🏥</div>
+        <h3>Modern Facilities</h3>
+        <p>Comfortable rooms and world-class infrastructure</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">⏰</div>
+        <h3>24/7 Emergency</h3>
+        <p>Round-the-clock emergency and critical care services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="quick-actions">
+  <div class="container">
+    <h2 class="section-title">Quick Actions</h2>
+    <div class="actions-grid">
+      <div class="action-card">
+        <div class="action-icon">📅</div>
+        <h3>Book Appointment</h3>
+        <p>Schedule your visit with our specialists</p>
+        <button class="action-btn">Book Now</button>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">🩺</div>
+        <h3>Health Checkup</h3>
+        <p>Comprehensive health packages available</p>
+        <button class="action-btn">View Packages</button>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">💊</div>
+        <h3>Online Consultation</h3>
+        <p>Consult with doctors from home</p>
+        <button class="action-btn">Start Chat</button>
+      </div>
+    </div>
+  </div>
+</section>
