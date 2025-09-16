@@ -14,4 +14,12 @@ export class FooterComponent {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  openWhatsApp() {
+    window.open('https://wa.me/919606654149', '_blank');
+  }
+
+  makeCall() {
+    window.location.href = 'tel:+919606654149';
+  }
 }

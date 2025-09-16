@@ -64,7 +64,7 @@ import { FormsModule } from '@angular/forms';
               <input type="date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
             </div>
           </div>
-          <button style="width: 100%; margin-top: 30px; background: #FFD700; color: #003366; padding: 15px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
+          <button (click)="makeCall()" style="width: 100%; margin-top: 30px; background: #FFD700; color: #003366; padding: 15px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
             Book Appointment
           </button>
         </div>
@@ -91,5 +91,9 @@ export class AppointmentsComponent {
     }
     
     this.symptomResult.set(result);
+  }
+
+  makeCall() {
+    window.location.href = 'tel:+919606654149';
   }
 }

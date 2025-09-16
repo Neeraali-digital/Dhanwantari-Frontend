@@ -14,4 +14,8 @@ export class HeaderComponent {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  makeCall() {
+    window.location.href = 'tel:+919606654149';
+  }
 }

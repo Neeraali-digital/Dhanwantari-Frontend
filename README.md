@@ -109,8 +109,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For any inquiries about this project, please contact:
-- Email: info@dhanwantarihospital.com
-- Phone: +1 (555) 123-4567
+- Email: info@dhanwantarihospitals.com
+- Phone: +91 9562441350
 
 ---
 

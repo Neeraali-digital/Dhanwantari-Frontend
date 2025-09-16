@@ -49,4 +49,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   goToSlide(index: number) {
     this.currentSlide = index;
   }
+
+  makeCall() {
+    window.location.href = 'tel:+919606654149';
+  }
 }

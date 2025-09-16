@@ -7,7 +7,7 @@ style="background-image: url('../../../assets/bg.jpg');"
     <!-- <p class="hero-subtitle">Care. Compassion. Community.</p> -->
     <p class="hero-description">Providing world-class healthcare with modern facilities and expert medical professionals</p>
     <div class="hero-buttons">
-      <button class="btn-primary">Book Appointment</button>
+      <button class="btn-primary" (click)="makeCall()">Book Appointment</button>
       <button class="btn-secondary">Emergency Care</button>
     </div>
   </div>
@@ -81,7 +81,7 @@ style="background-image: url('../../../assets/bg.jpg');"
         <div class="action-icon">📅</div>
         <h3>Book Appointment</h3>
         <p>Schedule your visit with our specialists</p>
-        <button class="action-btn">Book Now</button>
+        <button class="action-btn" (click)="makeCall()">Book Now</button>
       </div>
       <div class="action-card">
         <div class="action-icon">🩺</div>
