@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   slideInterval: any;
 
   specialties = [
-    { name: 'Cardiology', icon: '❤️', description: 'Advanced heart care and treatment' },
-    { name: 'Neurology', icon: '🧠', description: 'Expert neurological services' },
-    { name: 'Orthopedics', icon: '🦴', description: 'Bone and joint specialists' },
-    { name: 'Pediatrics', icon: '👶', description: 'Comprehensive child healthcare' },
+    { name: 'General Medicine', icon: '🩺', description: 'Comprehensive primary healthcare' },
+    { name: 'Critical Care', icon: '🏥', description: 'Intensive care and monitoring' },
+    { name: 'OBG', icon: '👶', description: 'Obstetrics and Gynecology care' },
+    { name: 'Geriatrics', icon: '👴', description: 'Specialized elderly care' },
     { name: 'Emergency', icon: '🚑', description: '24/7 emergency services' },
     { name: 'Surgery', icon: '⚕️', description: 'Advanced surgical procedures' }
   ];
@@ -51,6 +51,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   makeCall() {
-    window.location.href = 'tel:+919606654149';
+    window.location.href = 'tel:+919036425149';
   }
 }

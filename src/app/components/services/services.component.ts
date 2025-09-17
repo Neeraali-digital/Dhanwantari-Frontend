@@ -84,16 +84,55 @@ import { Component } from '@angular/core';
             </div>
           </div>
 
-          <!-- Surgery -->
+          <!-- Geriatrics -->
           <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
             <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">⚕️</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Advanced Surgery</h3>
-            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Minimally invasive and robotic surgical procedures across all specialties with faster recovery times and improved patient outcomes.</p>
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">👴</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Geriatrics</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Specialized healthcare for elderly patients focusing on age-related conditions, mobility, cognitive health, and quality of life.</p>
             <div style="display: flex; align-items: center; color: #667eea; font-weight: 600; cursor: pointer;">
               Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
+            </div>
+          </div>
+
+          <!-- Physiotherapy -->
+          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
+               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">🏃</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Physiotherapy</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.</p>
+            <div style="display: flex; align-items: center; color: #22c55e; font-weight: 600; cursor: pointer;">
+              Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
+            </div>
+          </div>
+
+          <!-- Diagnostic Services -->
+          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
+               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">🔬</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Diagnostic Services</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Complete diagnostic services including X-ray, Ultrasound scanning, and comprehensive Laboratory testing with quick results.</p>
+            <div style="display: flex; align-items: center; color: #a855f7; font-weight: 600; cursor: pointer;">
+              Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
+            </div>
+          </div>
+
+          <!-- 24-Hour Pharmacy -->
+          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
+               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">💊</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">24-Hour Pharmacy</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Round-the-clock pharmacy services with free home delivery. All medications available with prescription verification.</p>
+            <div style="display: flex; align-items: center; color: #f97316; font-weight: 600; cursor: pointer;">
+              Order Now <span style="margin-left: 8px; transition: all 0.3s;">→</span>
             </div>
           </div>
         </div>

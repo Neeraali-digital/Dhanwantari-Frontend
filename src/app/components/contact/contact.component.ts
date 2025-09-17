@@ -44,7 +44,7 @@ import { FormsModule } from '@angular/forms';
                 <span style="font-size: 24px; margin-right: 15px;">📍</span>
                 <h3 style="font-size: 20px; color: #003366;">Address</h3>
               </div>
-              <p style="color: #666; line-height: 1.5;">123 Healthcare Avenue<br>Medical District, City 12345</p>
+              <p style="color: #666; line-height: 1.5;">No. 18, Medrahalli Main Road<br>Chikkabanavara, Bangalore - 560090</p>
               <div style="margin-top: 20px; height: 150px; background: #E5E5E5; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
                 Google Maps Embed
               </div>
@@ -55,7 +55,7 @@ import { FormsModule } from '@angular/forms';
                 <span style="font-size: 24px; margin-right: 15px;">📞</span>
                 <h3 style="font-size: 20px; color: #003366;">Phone</h3>
               </div>
-              <p style="color: #666;">+1 (555) 123-4567</p>
+              <p style="color: #666;">+91 9036425149, +91 9036422149</p>
             </div>
             
             <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
@@ -63,7 +63,7 @@ import { FormsModule } from '@angular/forms';
                 <span style="font-size: 24px; margin-right: 15px;">✉️</span>
                 <h3 style="font-size: 20px; color: #003366;">Email</h3>
               </div>
-              <p style="color: #666;">info&#64;dhanwantarihospital.com</p>
+              <p style="color: #666;">admin&#64;dhanwantarihospitals.com</p>
             </div>
           </div>
         </div>
@@ -72,9 +72,9 @@ import { FormsModule } from '@angular/forms';
           <div style="font-size: 48px; margin-bottom: 20px;">🚨</div>
           <h3 style="font-size: 24px; color: #CC0000; margin-bottom: 15px;">Emergency Contact</h3>
           <p style="color: #CC0000; margin-bottom: 25px;">For life-threatening emergencies, call immediately</p>
-          <button style="background: #CC0000; color: white; padding: 15px 40px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;">
-            Call 911
-          </button>
+          <a href="tel:+919606654149" style="background: #CC0000; color: white; padding: 15px 40px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block;">
+            Call +91 9606654149
+          </a>
         </div>
       </div>
     </section>

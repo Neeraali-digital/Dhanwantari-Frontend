@@ -1,26 +1,59 @@
 <nav style="position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.1); z-index: 1000; padding: 0;">
-  <div class="nav-container" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px;">
-    <img src="../../assets/logo.png" class="h-20" alt="logo">
-    <div style="display: flex; gap: 40px; align-items: center;">
+  <div class="nav-container" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+    <img src="../../assets/logo.png" style="height: 60px; width: auto;" alt="logo">
+    
+    <!-- Mobile Menu Button -->
+    <button (click)="toggleMobileMenu()" style="display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b;" class="mobile-menu-btn">
+      {{ mobileMenuOpen ? '✕' : '☰' }}
+    </button>
+    
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav" style="display: flex; gap: 30px; align-items: center;">
       <a (click)="scrollTo('home')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s; position: relative;" 
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Home</a>
       <a (click)="scrollTo('about')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">About</a>
       <a (click)="scrollTo('services')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Services</a>
-      <a (click)="scrollTo('doctors')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
-         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Doctors</a>
-      <a (click)="scrollTo('health-packages')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
-         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Health Packages</a>
-      <a (click)="scrollTo('appointments')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
-         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Book</a>
+      <a (click)="scrollTo('gallery')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Gallery</a>
+      <a (click)="scrollTo('pharmacy')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
+         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Pharmacy</a>
       <a (click)="scrollTo('contact')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Contact</a>
     </div>
-    <button (click)="makeCall()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); display: flex; align-items: center; gap: 8px;"
+    
+    <button (click)="makeCall()" class="cta-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); display: flex; align-items: center; gap: 8px; font-size: 14px;"
             onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.6)'"
             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">
-      📞 Book Appointment
+      📞 <span class="btn-text">Book Appointment</span>
     </button>
   </div>
+  
+  <!-- Mobile Navigation Menu -->
+  <div *ngIf="mobileMenuOpen" style="background: white; border-top: 1px solid rgba(0,0,0,0.1); padding: 20px; display: none;" class="mobile-nav">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <a (click)="scrollTo('home'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Home</a>
+      <a (click)="scrollTo('about'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">About</a>
+      <a (click)="scrollTo('services'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Services</a>
+      <a (click)="scrollTo('gallery'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Gallery</a>
+      <a (click)="scrollTo('pharmacy'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Pharmacy</a>
+      <a (click)="scrollTo('contact'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0;">Contact</a>
+    </div>
+  </div>
 </nav>
+
+<style>
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: block !important; }
+  .desktop-nav { display: none !important; }
+  .mobile-nav { display: block !important; }
+  .cta-btn .btn-text { display: none; }
+  .cta-btn { padding: 10px 12px !important; }
+}
+
+@media (max-width: 480px) {
+  .nav-container { padding: 10px 15px !important; }
+  .cta-btn { font-size: 12px !important; }
+}
+</style>

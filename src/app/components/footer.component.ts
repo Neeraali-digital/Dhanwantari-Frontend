@@ -20,6 +20,6 @@ export class FooterComponent {
   }
 
   makeCall() {
-    window.location.href = 'tel:+919606654149';
+    window.location.href = 'tel:+919036425149';
   }
 }

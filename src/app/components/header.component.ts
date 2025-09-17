@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
+  mobileMenuOpen = false;
+
   scrollTo(elementId: string) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -16,6 +18,10 @@ export class HeaderComponent {
   }
 
   makeCall() {
-    window.location.href = 'tel:+919606654149';
+    window.location.href = 'tel:+919036425149';
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 }
