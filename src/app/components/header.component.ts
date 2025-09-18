@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   mobileMenuOpen = false;
+
+  constructor(private router: Router) {}
 
   scrollTo(elementId: string) {
     const element = document.getElementById(elementId);
@@ -23,5 +26,9 @@ export class HeaderComponent {
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  goToPharmacy() {
+    this.router.navigate(['/pharmacy']);
   }
 }

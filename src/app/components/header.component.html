@@ -17,17 +17,22 @@
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Services</a>
       <a (click)="scrollTo('gallery')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Gallery</a>
-      <a (click)="scrollTo('pharmacy')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
-         onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Pharmacy</a>
       <a (click)="scrollTo('contact')" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; transition: all 0.3s;"
          onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#64748b'">Contact</a>
     </div>
     
-    <button (click)="makeCall()" class="cta-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); display: flex; align-items: center; gap: 8px; font-size: 14px;"
-            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.6)'"
-            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">
-      📞 <span class="btn-text">Book Appointment</span>
-    </button>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button (click)="goToPharmacy()" class="pharmacy-btn" style="background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%); color: #0277bd; padding: 10px 20px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(2, 119, 189, 0.2); display: flex; align-items: center; gap: 8px; font-size: 14px;"
+              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(2, 119, 189, 0.3)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(2, 119, 189, 0.2)'">
+        💊 <span class="btn-text">Pharmacy</span>
+      </button>
+      <button (click)="makeCall()" class="cta-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); display: flex; align-items: center; gap: 8px; font-size: 14px;"
+              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.6)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">
+        📞 <span class="btn-text">Book Appointment</span>
+      </button>
+    </div>
   </div>
   
   <!-- Mobile Navigation Menu -->
@@ -37,7 +42,6 @@
       <a (click)="scrollTo('about'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">About</a>
       <a (click)="scrollTo('services'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Services</a>
       <a (click)="scrollTo('gallery'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Gallery</a>
-      <a (click)="scrollTo('pharmacy'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f1f5f9;">Pharmacy</a>
       <a (click)="scrollTo('contact'); toggleMobileMenu()" style="color: #64748b; cursor: pointer; text-decoration: none; font-weight: 500; padding: 10px 0;">Contact</a>
     </div>
   </div>
@@ -48,8 +52,8 @@
   .mobile-menu-btn { display: block !important; }
   .desktop-nav { display: none !important; }
   .mobile-nav { display: block !important; }
-  .cta-btn .btn-text { display: none; }
-  .cta-btn { padding: 10px 12px !important; }
+  .cta-btn .btn-text, .pharmacy-btn .btn-text { display: none; }
+  .cta-btn, .pharmacy-btn { padding: 10px 12px !important; }
 }
 
 @media (max-width: 480px) {

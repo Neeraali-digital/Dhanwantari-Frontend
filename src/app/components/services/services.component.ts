@@ -32,15 +32,14 @@ import { Component } from '@angular/core';
             </div>
           </div>
 
-          <!-- Cardiology -->
-          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
-               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
-            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">💓</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Cardiology</h3>
-            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Advanced heart care including interventional cardiology, cardiac surgery, and comprehensive cardiovascular disease prevention and treatment programs.</p>
-            <div style="display: flex; align-items: center; color: #f59e0b; font-weight: 600; cursor: pointer;">
+          <!-- Critical Care - HIGHLIGHTED -->
+          <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 24px; padding: 40px; box-shadow: 0 12px 40px rgba(245, 158, 11, 0.3); border: 3px solid #f59e0b; transition: all 0.3s; position: relative; overflow: hidden; transform: scale(1.05);"
+               onmouseover="this.style.transform='translateY(-8px) scale(1.08)'; this.style.boxShadow='0 20px 60px rgba(245, 158, 11, 0.4)'"
+               onmouseout="this.style.transform='translateY(0) scale(1.05)'; this.style.boxShadow='0 12px 40px rgba(245, 158, 11, 0.3)'">
+            <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px; color: white;">🏥</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 16px;">Critical Care</h3>
+            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 24px;">Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.</p>
+            <div style="display: flex; align-items: center; color: white; font-weight: 600; cursor: pointer;">
               Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
             </div>
           </div>
@@ -58,28 +57,27 @@ import { Component } from '@angular/core';
             </div>
           </div>
 
-          <!-- Pediatrics -->
+          <!-- OBG -->
           <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
             <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
             <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">👶</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Pediatrics</h3>
-            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Specialized healthcare for children from newborns to adolescents, including preventive care, vaccinations, and treatment of childhood diseases.</p>
+            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Obstetrics & Gynecology</h3>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Comprehensive women's health services including prenatal care, delivery, gynecological treatments, and reproductive health.</p>
             <div style="display: flex; align-items: center; color: #06b6d4; font-weight: 600; cursor: pointer;">
               Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
             </div>
           </div>
 
-          <!-- General Medicine -->
-          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s; position: relative; overflow: hidden;"
-               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'"
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'">
-            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 0 24px 0 100px; opacity: 0.1;"></div>
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;">🩺</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">General Medicine</h3>
-            <p style="color: #64748b; line-height: 1.6; margin-bottom: 24px;">Primary healthcare services including routine check-ups, preventive care, chronic disease management, and health screenings for all ages.</p>
-            <div style="display: flex; align-items: center; color: #10b981; font-weight: 600; cursor: pointer;">
+          <!-- General Medicine - HIGHLIGHTED -->
+          <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 24px; padding: 40px; box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3); border: 3px solid #10b981; transition: all 0.3s; position: relative; overflow: hidden; transform: scale(1.05);"
+               onmouseover="this.style.transform='translateY(-8px) scale(1.08)'; this.style.boxShadow='0 20px 60px rgba(16, 185, 129, 0.4)'"
+               onmouseout="this.style.transform='translateY(0) scale(1.05)'; this.style.boxShadow='0 12px 40px rgba(16, 185, 129, 0.3)'">
+            <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px; color: white;">🩺</div>
+            <h3 style="font-size: 24px; font-weight: 700; color: white; margin-bottom: 16px;">General Medicine</h3>
+            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 24px;">Primary healthcare services including routine check-ups, preventive care, chronic disease management, and health screenings for all ages.</p>
+            <div style="display: flex; align-items: center; color: white; font-weight: 600; cursor: pointer;">
               Learn More <span style="margin-left: 8px; transition: all 0.3s;">→</span>
             </div>
           </div>
