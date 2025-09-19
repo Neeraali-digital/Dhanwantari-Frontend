@@ -53,9 +53,12 @@ export class PharmacyPageComponent {
     { name: 'Peenya', time: '25-40 mins' },
     { name: 'Mathikere', time: '20-35 mins' },
     { name: 'Yeshwanthpur', time: '30-45 mins' },
-    { name: 'Rajajinagar', time: '35-50 mins' },
-    { name: 'Malleshwaram', time: '40-55 mins' },
-    { name: 'Hebbal', time: '25-40 mins' }
+    { name: 'Kereguddadahalli', time: '20-35 mins' },
+    { name: 'T Dasarahalli', time: '25-40 mins' },
+    { name: 'Mallasandra', time: '30-45 mins' },
+    { name: 'Abbigere', time: '35-50 mins' },
+    { name: 'Somashettihalli', time: '40-55 mins' },
+    { name: 'Malleshwaram', time: '40-55 mins' }
   ];
 
   orderMedicine() {

@@ -8,11 +8,11 @@ import { Component } from '@angular/core';
       <div style="max-width: 1400px; margin: 0 auto;">
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 80px;">
-          <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px;">
+          <div style="display: inline-block; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 8px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px;">
             💊 Health Packages
           </div>
           <h2 style="font-size: 48px; font-weight: 800; color: #1e293b; margin-bottom: 24px; line-height: 1.2;">
-            Comprehensive Health <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Checkup Packages</span>
+            Comprehensive Health <span style="background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Checkup Packages</span>
           </h2>
           <p style="font-size: 20px; color: #64748b; max-width: 600px; margin: 0 auto; line-height: 1.6;">
             Choose from our carefully designed health packages for complete wellness monitoring and early detection.
@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
             </div>
             <div style="font-size: 48px; margin-bottom: 24px;">🩺</div>
             <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Basic Health Checkup</h3>
-            <div style="font-size: 36px; font-weight: 800; color: #667eea; margin-bottom: 8px;">₹2,999</div>
+            <div style="font-size: 36px; font-weight: 800; color: #15afa7; margin-bottom: 8px;">₹2,999</div>
             <div style="color: #64748b; margin-bottom: 32px; text-decoration: line-through;">₹4,500</div>
             
             <div style="margin-bottom: 32px;">
@@ -57,17 +57,17 @@ import { Component } from '@angular/core';
               </div>
             </div>
             
-            <button style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
-                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.4)'"
+            <button style="width: 100%; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(21, 175, 167, 0.4)'"
                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
               📅 Book Now
             </button>
           </div>
 
           <!-- Premium Package -->
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3); transition: all 0.3s; position: relative; overflow: hidden; color: white;"
-               onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 60px rgba(102, 126, 234, 0.4)'"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(102, 126, 234, 0.3)'">
+          <div style="background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(21, 175, 167, 0.3); transition: all 0.3s; position: relative; overflow: hidden; color: white;"
+               onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 60px rgba(21, 175, 167, 0.4)'"
+               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(21, 175, 167, 0.3)'">
             <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #1f2937; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
               RECOMMENDED
             </div>
@@ -115,7 +115,7 @@ import { Component } from '@angular/core';
             </div>
             <div style="font-size: 48px; margin-bottom: 24px;">💎</div>
             <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Executive Health Checkup</h3>
-            <div style="font-size: 36px; font-weight: 800; color: #667eea; margin-bottom: 8px;">₹15,999</div>
+            <div style="font-size: 36px; font-weight: 800; color: #15afa7; margin-bottom: 8px;">₹15,999</div>
             <div style="color: #64748b; margin-bottom: 32px; text-decoration: line-through;">₹25,000</div>
             
             <div style="margin-bottom: 32px;">
@@ -141,8 +141,8 @@ import { Component } from '@angular/core';
               </div>
             </div>
             
-            <button style="width: 100%; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
-                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.4)'"
+            <button style="width: 100%; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(21, 175, 167, 0.4)'"
                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
               📅 Book Now
             </button>

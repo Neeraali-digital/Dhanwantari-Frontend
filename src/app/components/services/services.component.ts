@@ -9,11 +9,11 @@ import { CommonModule } from '@angular/common';
     <section style="padding: 120px 40px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative;">
       <div style="max-width: 1400px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 80px;">
-          <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px;">
+          <div style="display: inline-block; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 8px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px;">
             🏥 Our Expertise
           </div>
           <h2 style="font-size: 48px; font-weight: 800; color: #1e293b; margin-bottom: 24px; line-height: 1.2;">
-            Comprehensive <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Healthcare</span> Services
+            Comprehensive <span style="background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Healthcare</span> Services
           </h2>
           <p style="font-size: 20px; color: #64748b; max-width: 600px; margin: 0 auto; line-height: 1.6;">
             Advanced medical care across all specialties with state-of-the-art technology and compassionate professionals
@@ -41,8 +41,8 @@ import { CommonModule } from '@angular/common';
         </div>
         
         <div style="text-align: center;">
-          <button (click)="toggleServices()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 32px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
-                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.4)'"
+          <button (click)="toggleServices()" style="background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 16px 32px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
+                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(21, 175, 167, 0.4)'"
                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
             {{showAllServices ? 'View Less' : 'View More'}} Services
           </button>
@@ -72,16 +72,16 @@ export class ServicesComponent {
       icon: '🩺',
       title: 'General Medicine',
       description: 'Primary healthcare services including routine check-ups, preventive care, chronic disease management, and health screenings for all ages.',
-      gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-      color: '#10b981',
+      gradient: 'linear-gradient(135deg, #15afa7 0%, #0d8a82 100%)',
+      color: '#15afa7',
       highlighted: true
     },
     {
       icon: '🏥',
       title: 'Critical Care',
       description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-      color: '#f59e0b',
+      gradient: 'linear-gradient(135deg, #15afa7 0%, #0d8a82 100%)',
+      color: '#15afa7',
       highlighted: true
     },
     {
@@ -95,8 +95,8 @@ export class ServicesComponent {
       icon: '👴',
       title: 'Geriatrics',
       description: 'Specialized healthcare for elderly patients focusing on age-related conditions, mobility, cognitive health, and quality of life.',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      color: '#667eea'
+      gradient: 'linear-gradient(135deg, #15afa7 0%, #0d8a82 100%)',
+      color: '#15afa7'
     },
     {
       icon: '🏃',

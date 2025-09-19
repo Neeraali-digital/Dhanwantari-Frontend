@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
           <div *ngFor="let image of galleryImages" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;"
                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
               {{ image.icon }}
             </div>
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 20px;">
@@ -38,7 +38,7 @@ export class GalleryComponent {
     { icon: '🚑', title: 'Emergency Ward', description: '24/7 emergency care with rapid response team' },
     { icon: '💊', title: 'Pharmacy', description: '24-hour pharmacy with comprehensive medication stock' },
     { icon: '🏃', title: 'Physiotherapy', description: 'Modern rehabilitation and physiotherapy center' },
-    { icon: '👶', title: 'Pediatric Ward', description: 'Child-friendly environment for young patients' },
+    { icon: '🤱', title: 'Birthing Suite', description: 'Comfortable and safe delivery rooms for mothers' },
     { icon: '🧠', title: 'ICU', description: 'Intensive care unit with advanced monitoring systems' }
   ];
 }
