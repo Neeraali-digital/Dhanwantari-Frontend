@@ -13,12 +13,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   slideInterval: any;
 
   specialties = [
-    { name: 'General Medicine', icon: '🩺', description: 'Comprehensive primary healthcare' },
-    { name: 'Critical Care', icon: '🏥', description: 'Intensive care and monitoring' },
-    { name: 'OBG', icon: '👶', description: 'Obstetrics and Gynecology care' },
-    { name: 'Geriatrics', icon: '👴', description: 'Specialized elderly care' },
-    { name: 'Emergency', icon: '🚑', description: '24/7 emergency services' },
-    { name: 'Surgery', icon: '⚕️', description: 'Advanced surgical procedures' }
+    { name: 'General Medicine', icon: '🩺', description: 'Comprehensive primary healthcare', image: '../../../assets/images/general_medicine.png' },
+    { name: 'Critical Care', icon: '🏥', description: 'Intensive care and monitoring', image: '../../../assets/images/critical_care.png' },
+    { name: 'OBG', icon: '👶', description: 'Obstetrics and Gynecology care', image: '../../../assets/images/obstetrics_and_gynecology.png' },
+    { name: 'Geriatrics', icon: '👴', description: 'Specialized elderly care', image: '../../../assets/images/geriatrics.png' },
+    { name: 'Emergency', icon: '🚑', description: '24/7 emergency services', image: '../../../assets/images/emergency.png' },
+    { name: 'Surgery', icon: '⚕️', description: 'Advanced surgical procedures', image: '../../../assets/images/surgery.png' }
   ];
 
 

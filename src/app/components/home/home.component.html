@@ -11,18 +11,19 @@
 </section>
 
 <!-- Specialties Slider -->
-<section class="specialties">
+<section class="specialties bg-white">
   <div class="container">
     <h2 class="section-title">Our Medical Specialties</h2>
     <div class="slider-container">
       <button class="slider-btn prev" (click)="prevSlide()">‹</button>
-      <div class="slider">
+      <div class="slider bg-white">
         <div class="slide-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
           <div class="slide" *ngFor="let specialty of specialties">
-            <div class="specialty-card">
-              <div class="specialty-icon">{{ specialty.icon }}</div>
-              <h3>{{ specialty.name }}</h3>
-              <p>{{ specialty.description }}</p>
+            <div class="specialty-card " [style.backgroundImage]="'url(' + specialty.image + ')'">
+              <div class="specialty-content">
+                <h3>{{ specialty.name }}</h3>
+                <p>{{ specialty.description }}</p>
+              </div>
             </div>
           </div>
         </div>
