@@ -8,10 +8,27 @@
   <meta name="description" content="Dhanwantari Hospital - Providing exceptional healthcare services with compassion and dedication to our community. Care, Compassion, Community.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#50bfb5',
+            secondary: '#1b3563',
+            tertiary: '#231f1f',
+            'primary-light': '#7dd3c0',
+            'primary-dark': '#3da99f',
+            'secondary-light': '#2563eb',
+            'secondary-dark': '#1e40af'
+          }
+        }
+      }
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="font-inter">
   <app-root></app-root>
 </body>
 </html>

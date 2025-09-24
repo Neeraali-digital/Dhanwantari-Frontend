@@ -4,7 +4,7 @@
     <h1 style="font-size: clamp(2rem, 8vw, 4.5rem); font-weight: 800; color: white; margin-bottom: 1rem; line-height: 1.1; text-align: center;">Dhanwantari Hospital</h1>
     <p class="hero-description" style="font-size: clamp(1rem, 3vw, 1.2rem); text-align: center; margin-bottom: 2rem;">Providing world-class healthcare with modern facilities and expert medical professionals</p>
     <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <button class="btn-primary" (click)="makeCall()" style="padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1rem);">Book Appointment</button>
+      <button class="rounded-md font-semibold bg-primary" (click)="makeCall()" style="padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1rem);">Book Appointment</button>
       <button class="btn-secondary" style="padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1rem);">Emergency Care</button>
     </div>
   </div>
@@ -15,7 +15,7 @@
   <div class="container">
     <h2 class="section-title">Our Medical Specialties</h2>
     <div class="slider-container">
-      <button class="slider-btn prev" (click)="prevSlide()">‹</button>
+      <button class="slider-btn prev !bg-primary" (click)="prevSlide()">‹</button>
       <div class="slider bg-white">
         <div class="slide-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
           <div class="slide" *ngFor="let specialty of specialties">
@@ -28,11 +28,11 @@
           </div>
         </div>
       </div>
-      <button class="slider-btn next" (click)="nextSlide()">›</button>
+      <button class="slider-btn next !bg-primary" (click)="nextSlide()">›</button>
     </div>
     <div class="slider-dots">
       <span 
-        class="dot" 
+        class="dot text-priamary" 
         *ngFor="let specialty of specialties; let i = index"
         [class.active]="i === currentSlide"
         (click)="goToSlide(i)">
@@ -47,22 +47,30 @@
     <h2 class="section-title">Why Choose Dhanwantari Hospital?</h2>
     <div class="services-grid">
       <div class="service-item">
-        <div class="service-icon">🔬</div>
+        <div class="service-icon">
+          <span class="material-icons text-primary text-4xl">biotech</span>
+        </div>
         <h3>Advanced Technology</h3>
         <p>State-of-the-art medical equipment and diagnostic tools</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">👨‍⚕️</div>
+        <div class="service-icon">
+          <span class="material-icons text-primary text-4xl">medical_services</span>
+        </div>
         <h3>Expert Doctors</h3>
         <p>Highly qualified specialists with years of experience</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">🏥</div>
+        <div class="service-icon">
+          <span class="material-icons text-primary text-4xl">local_hospital</span>
+        </div>
         <h3>Modern Facilities</h3>
         <p>Comfortable rooms and world-class infrastructure</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">⏰</div>
+        <div class="service-icon">
+          <span class="material-icons text-primary text-4xl">schedule</span>
+        </div>
         <h3>24/7 Emergency</h3>
         <p>Round-the-clock emergency and critical care services</p>
       </div>
@@ -76,19 +84,25 @@
     <h2 class="section-title">Quick Actions</h2>
     <div class="actions-grid">
       <div class="action-card">
-        <div class="action-icon">📅</div>
+        <div class="action-icon">
+          <span class="material-icons text-primary text-4xl">event</span>
+        </div>
         <h3>Book Appointment</h3>
         <p>Schedule your visit with our specialists</p>
         <button class="action-btn" (click)="makeCall()">Book Now</button>
       </div>
       <div class="action-card">
-        <div class="action-icon">🩺</div>
+        <div class="action-icon">
+          <span class="material-icons text-primary text-4xl">health_and_safety</span>
+        </div>
         <h3>Health Checkup</h3>
         <p>Comprehensive health packages available</p>
         <button class="action-btn">View Packages</button>
       </div>
       <div class="action-card">
-        <div class="action-icon">💊</div>
+        <div class="action-icon">
+          <span class="material-icons text-primary text-4xl">medication</span>
+        </div>
         <h3>Online Consultation</h3>
         <p>Consult with doctors from home</p>
         <button class="action-btn">Start Chat</button>

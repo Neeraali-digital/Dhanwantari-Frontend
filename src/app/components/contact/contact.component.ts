@@ -52,27 +52,28 @@ import { FormsModule } from '@angular/forms';
             
             <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
               <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; margin-right: 15px;">📞</span>
-                <h3 style="font-size: 20px; color: #003366;">Phone</h3>
+                <span class="material-icons text-primary" style="font-size: 24px; margin-right: 15px;">phone</span>
+                <h3 style="font-size: 20px; color: #1b3563;">Phone</h3>
               </div>
               <p style="color: #666;">+91 9036425149, +91 9036422149</p>
             </div>
-            
+
             <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
               <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; margin-right: 15px;">✉️</span>
-                <h3 style="font-size: 20px; color: #003366;">Email</h3>
+                <span class="material-icons text-primary" style="font-size: 24px; margin-right: 15px;">email</span>
+                <h3 style="font-size: 20px; color: #1b3563;">Email</h3>
               </div>
               <p style="color: #666;">admin&#64;dhanwantarihospitals.com</p>
             </div>
           </div>
         </div>
         
-        <div style="margin-top: 60px; background: #FFE6E6; border: 2px solid #FF9999; border-radius: 12px; padding: 40px; text-align: center;">
-          <div style="font-size: 48px; margin-bottom: 20px;">🚨</div>
-          <h3 style="font-size: 24px; color: #CC0000; margin-bottom: 15px;">Emergency Contact</h3>
-          <p style="color: #CC0000; margin-bottom: 25px;">For life-threatening emergencies, call immediately</p>
-          <a href="tel:+919606654149" style="background: #CC0000; color: white; padding: 15px 40px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block;">
+        <div style="margin-top: 60px; background: #fef2f2; border: 2px solid #fca5a5; border-radius: 12px; padding: 40px; text-align: center;">
+          <span class="material-icons text-red-600" style="font-size: 48px; margin-bottom: 20px; display: block;">emergency</span>
+          <h3 style="font-size: 24px; color: #dc2626; margin-bottom: 15px;">Emergency Contact</h3>
+          <p style="color: #dc2626; margin-bottom: 25px;">For life-threatening emergencies, call immediately</p>
+          <a href="tel:+919606654149" style="background: #dc2626; color: white; padding: 15px 40px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; justify-content: center;">
+            <span class="material-icons">phone</span>
             Call +91 9606654149
           </a>
         </div>
