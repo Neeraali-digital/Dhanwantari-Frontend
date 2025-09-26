@@ -1,9 +1,36 @@
 /* Services specific styles */
+.service-card {
+  border: 1px solid #e2e8f0;
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.service-card a .material-icons {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover a .material-icons {
+  transform: translateX(4px);
+}
+
 @media (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr !important;
