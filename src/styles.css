@@ -1,3 +1,14 @@
+/* Custom brand color variables */
+:root {
+  --primary: #50bfb5;
+  --secondary: #1b3563;
+  --tertiary: #231f1f;
+  --primary-light: #7dd3c0;
+  --primary-dark: #3da99f;
+  --secondary-light: #2563eb;
+  --secondary-dark: #1e40af;
+}
+
 /* Global styles */
 html {
   scroll-behavior: smooth;

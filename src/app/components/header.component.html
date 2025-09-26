@@ -4,7 +4,7 @@
     
     <!-- Mobile Menu Button -->
     <button (click)="toggleMobileMenu()" style="display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b;" class="mobile-menu-btn">
-      <span class="material-icons">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
+      <span class="material-icons !text-3xl text-primary pt-2">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
     </button>
     
     <!-- Desktop Navigation -->
@@ -22,12 +22,12 @@
     </div>
     
     <div style="display: flex; gap: 10px; align-items: center;">
-      <button (click)="goToPharmacy()" class="pharmacy-btn bg-primary text-white hover:bg-primary-dark hover:text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-        <span class="material-icons text-lg">medication</span>
+      <button (click)="goToPharmacy()" class="pharmacy-btn bg-primary text-white hover:bg-primary-dark hover:text-white px-3 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <span class="material-icons lg:text-lg text-sm">medication</span>
         <span class="btn-text">Pharmacy</span>
       </button>
-      <button (click)="makeCall()" class="cta-btn bg-primary hover:bg-primary-dark text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-        <span class="material-icons text-lg">phone</span>
+      <button (click)="makeCall()" class="cta-btn bg-primary hover:bg-primary-dark text-white px-3 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <span class="material-icons lg:text-lg text-sm">phone</span>
         <span class="btn-text">Book Appointment</span>
       </button>
     </div>
@@ -55,7 +55,7 @@
 }
 
 @media (max-width: 480px) {
-  .nav-container { padding: 10px 15px !important; }
+  .nav-container { padding: 15px 13px !important; }
   .cta-btn { font-size: 12px !important; }
 }
 </style>
