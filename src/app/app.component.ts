@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header.component';
@@ -10,12 +10,20 @@ import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HealthPackagesComponent } from './components/health-packages/health-packages.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, HomeComponent, AboutComponent, ServicesComponent, GalleryComponent, ContactComponent, BlogComponent, HealthPackagesComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, HomeComponent, AboutComponent, ServicesComponent, GalleryComponent, ContactComponent, BlogComponent, HealthPackagesComponent, LoaderComponent],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  isLoading = true;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
+  }
 }

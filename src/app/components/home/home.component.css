@@ -151,3 +151,25 @@
 
 @media (max-width:768px){.hero{flex-direction:column;text-align:center;padding:40px 15px}.hero-title{font-size:2.5rem}.hero-buttons{justify-content:center;gap:0.5rem}.hero-buttons .btn-primary,.hero-buttons .btn-secondary{min-width:120px;padding:10px 16px;font-size:0.9rem}.slider-btn{display:none}.highlights-grid,.services-grid,.actions-grid{grid-template-columns:1fr;gap:1.5rem}.section-title{font-size:1.8rem;margin-bottom:2rem}.specialty-card{padding:2rem}.service-item{padding:2rem}.action-card{padding:2rem}.container{padding:0 15px}}
 @media (max-width:480px){.hero{padding:30px 10px}.section-title{font-size:1.5rem}.specialty-card{padding:1.5rem}.service-item{padding:1.5rem}.action-card{padding:1.5rem}.hero-buttons{flex-direction:column;align-items:center}.hero-buttons .btn-primary,.hero-buttons .btn-secondary{width:100%;max-width:200px}.container{padding:0 10px}.specialties,.services-overview,.quick-actions{padding:40px 0}}
+
+.pharmacy-section {
+    position: relative;
+}
+
+.order-step {
+    transition: transform 0.3s ease;
+}
+
+.order-step:hover {
+    transform: translateY(-10px);
+}
+
+.delivery-area {
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.delivery-area:hover {
+    background-color: var(--primary);
+    color: white;
+}
