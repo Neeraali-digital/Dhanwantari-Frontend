@@ -41,6 +41,6 @@ export class HeaderComponent {
   }
 
   goToPharmacy() {
-    this.router.navigate(['/pharmacy']);
+    this.scrollTo('pharmacy');
   }
 }

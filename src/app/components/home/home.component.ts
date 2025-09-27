@@ -21,6 +21,46 @@ export class HomeComponent implements OnInit, OnDestroy {
     { name: 'Surgery', icon: '⚕️', description: 'Advanced surgical procedures', image: '../../../assets/images/surgery.png' }
   ];
 
+  medicineCategories = [
+    { icon: 'medication', name: 'Tablets & Capsules', description: 'Oral medications for various conditions' },
+    { icon: 'vaccines', name: 'Injections', description: 'Injectable medicines and vaccines' },
+    { icon: 'science', name: 'Syrups & Liquids', description: 'Liquid medications and suspensions' },
+    { icon: 'healing', name: 'External Applications', description: 'Creams, ointments, and topical solutions' },
+    { icon: 'eco', name: 'Herbal & Ayurvedic', description: 'Natural and traditional medicines' },
+    { icon: 'child_care', name: 'Baby Care', description: 'Pediatric medicines and baby products' },
+    { icon: 'dental_care', name: 'Dental Care', description: 'Oral hygiene and dental health products' },
+    { icon: 'visibility', name: 'Eye Care', description: 'Eye drops and vision care products' }
+  ];
+
+  pharmacyServices = [
+    { icon: '🚚', title: 'Free Home Delivery', description: 'All medications delivered to your doorstep at no extra cost. Fast and reliable delivery service available 24/7.' },
+    { icon: '⏰', title: '24/7 Available', description: 'Round-the-clock pharmacy services for all your medication needs. Emergency medicines available anytime.' },
+    { icon: '✅', title: 'Prescription Verified', description: 'All medications dispensed with proper prescription verification by licensed pharmacists.' },
+    { icon: '💰', title: 'Best Prices', description: 'Competitive pricing on all medications with special discounts for regular customers.' },
+    { icon: '🔒', title: 'Secure & Safe', description: 'All medications stored in proper conditions and handled with utmost care and safety.' },
+    { icon: '👨⚕️', title: 'Expert Consultation', description: 'Free consultation with experienced pharmacists for medication guidance and advice.' }
+  ];
+
+  orderSteps = [
+    { title: 'Call Us', description: 'Call our 24/7 helpline at +91 9036425149 to place your order' },
+    { title: 'Share Prescription', description: 'Share your prescription via WhatsApp or email for verification' },
+    { title: 'Get Delivery', description: 'Receive your medicines at your doorstep within 30-60 minutes' }
+  ];
+
+  deliveryAreas = [
+    { name: 'Chikkabanavara', time: '15-30 mins' },
+    { name: 'Jalahalli', time: '20-35 mins' },
+    { name: 'Peenya', time: '25-40 mins' },
+    { name: 'Mathikere', time: '20-35 mins' },
+    { name: 'Yeshwanthpur', time: '30-45 mins' },
+    { name: 'Kereguddadahalli', time: '20-35 mins' },
+    { name: 'T Dasarahalli', time: '25-40 mins' },
+    { name: 'Mallasandra', time: '30-45 mins' },
+    { name: 'Abbigere', time: '35-50 mins' },
+    { name: 'Somashettihalli', time: '40-55 mins' },
+    { name: 'Malleshwaram', time: '40-55 mins' }
+  ];
+
 
   ngOnInit() {
     this.startSlideShow();
@@ -51,6 +91,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   makeCall() {
+    window.location.href = 'tel:+919036425149';
+  }
+
+  orderMedicine() {
     window.location.href = 'tel:+919036425149';
   }
 }
