@@ -1,0 +1,55 @@
+<div class="manage-container">
+  <h2>
+    <i class="material-icons">photo_library</i>
+    Manage Gallery Images
+  </h2>
+  
+  <div class="gallery-grid" *ngIf="!loading">
+    <div class="gallery-item" *ngFor="let image of galleryImages">
+      <img [src]="image.image" [alt]="image.title" />
+      <div class="image-info">
+        <h3>{{ image.title }}</h3>
+        <p>{{ image.description }}</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-delete" (click)="deleteGalleryImage(image.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="galleryImages.length === 0 && !loading" class="no-data">
+    No gallery images found.
+  </div>
+  
+  <div *ngIf="loading" class="loading">
+    Loading gallery images...
+  </div>
+  
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div class="upload-section">
+    <h3>Add New Image</h3>
+    <form (submit)="uploadImage()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" [(ngModel)]="newImage.title" name="title" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="newImage.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="imageFile">Select Image</label>
+        <input id="imageFile" type="file" (change)="onFileSelected($event)" accept="image/*" required />
+      </div>
+      <div *ngIf="imagePreview" class="image-preview">
+        <img [src]="imagePreview" alt="Image Preview" />
+      </div>
+      <button type="submit" [disabled]="!newImage.title || !selectedFile">Upload</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="manage-container">
+  <h2>
+    <i class="material-icons">build</i>
+    Manage Services
+  </h2>
+
+  <div class="services-list" *ngIf="!loading">
+    <div class="service-item" *ngFor="let service of services">
+      <h3>{{ service.name }}</h3>
+      <p>{{ service.description }}</p>
+      <div class="actions">
+        <button class="btn btn-edit" (click)="editService(service)">Edit</button>
+        <button class="btn btn-delete" (click)="deleteService(service.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="services.length === 0 && !loading" class="no-data">
+    No services found.
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading services...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div class="service-form-section">
+    <h3>{{ editingService ? 'Edit Service' : 'Add New Service' }}</h3>
+    <form (submit)="saveService()">
+      <div class="form-group">
+        <label for="name">Service Name</label>
+        <input id="name" type="text" [(ngModel)]="serviceForm.name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="serviceForm.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input id="category" type="text" [(ngModel)]="serviceForm.category" name="category" />
+      </div>
+      <button type="submit" [disabled]="!serviceForm.name">{{ editingService ? 'Update' : 'Add' }} Service</button>
+      <button type="button" *ngIf="editingService" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+</div>

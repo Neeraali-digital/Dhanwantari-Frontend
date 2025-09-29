@@ -1,0 +1,89 @@
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="header-content">
+      <div class="header-icon">
+        <span class="material-icons">article</span>
+      </div>
+      <div class="header-text">
+        <h1>Blog Management</h1>
+        <p>Create and manage your blog posts</p>
+      </div>
+    </div>
+    <button class="btn btn-primary add-btn" (click)="addNewBlogPost()">
+      <span class="material-icons">add</span>
+      Add New Post
+    </button>
+  </div>
+
+  <div class="posts-grid" *ngIf="!loading">
+    <div class="post-card" *ngFor="let post of blogPosts; trackBy: trackById">
+      <div class="post-header">
+        <div class="post-info">
+          <h3>{{ post.title }}</h3>
+          <div class="post-meta">
+            <span class="author">By {{ post.author }}</span>
+            <span class="date">{{ post.created_at | date:'mediumDate' }}</span>
+            <span class="status" [class]="post.published ? 'published' : 'draft'">
+              {{ post.published ? 'Published' : 'Draft' }}
+            </span>
+          </div>
+        </div>
+        <div class="post-actions">
+          <button class="action-btn edit" (click)="editBlogPost(post)" title="Edit post">
+            <span class="material-icons">edit</span>
+          </button>
+          <button class="action-btn delete" (click)="deleteBlogPost(post.id)" title="Delete post">
+            <span class="material-icons">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>{{ post.excerpt || post.content | slice:0:150 }}...</p>
+      </div>
+
+      <div class="post-tags" *ngIf="post.tags">
+        <span class="tag" *ngFor="let tag of post.tags.split(',')">{{ tag.trim() }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="blogPosts.length === 0" class="empty-state">
+      <div class="empty-icon">
+        <span class="material-icons">article</span>
+      </div>
+      <h3>No Blog Posts Yet</h3>
+      <p>Create your first blog post to get started.</p>
+      <button class="btn btn-primary" (click)="addNewBlogPost()">
+        <span class="material-icons">add</span>
+        Create First Post
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-state">
+    <div class="loading-spinner">
+      <span class="material-icons spinning">refresh</span>
+    </div>
+    <p>Loading blog posts...</p>
+  </div>
+
+  <div *ngIf="error" class="error-state">
+    <div class="error-icon">
+      <span class="material-icons">error</span>
+    </div>
+    <h3>Error Loading Posts</h3>
+    <p>{{ error }}</p>
+    <button class="retry-btn" (click)="loadBlogPosts()">
+      <span class="material-icons">refresh</span>
+      Try Again
+    </button>
+  </div>
+
+  <!-- Blog Form Modal -->
+  <app-manage-blog-form
+    *ngIf="showForm"
+    [blogPost]="editingPost"
+    (save)="saveBlogPost($event)"
+    (cancel)="closeForm()">
+  </app-manage-blog-form>
+</div>

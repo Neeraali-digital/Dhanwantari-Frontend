@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username" class="!text-sm !text-primary">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Enter username"
+        />
+      </div>
+      <div class="form-group password-group">
+        <label for="password" class="!text-sm !text-primary">Password</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          formControlName="password"
+          placeholder="Enter password"
+        />
+        <span class="toggle-password" (click)="togglePassword()">
+          <i class="material-icons">{{ showPassword ? 'visibility_off' : 'visibility' }}</i>
+        </span>
+      </div>
+      <button type="submit" [disabled]="loading" class="login-btn">
+        <span *ngIf="loading">Logging in...</span>
+        <span *ngIf="!loading">Login</span>
+      </button>
+      <div *ngIf="error" class="error">{{ error }}</div>
+    </form>
+  </div>
+  <div class="background-animation">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+  </div>
+</div>

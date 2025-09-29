@@ -1,0 +1,110 @@
+<div class="manage-appointments">
+  <div class="page-header">
+    <div class="header-content">
+      <h1>Manage Appointments</h1>
+      <p>View and manage all hospital appointments</p>
+    </div>
+    <button class="add-btn" (click)="addAppointment()">
+      <span class="material-icons">add</span>
+      Add Appointment
+    </button>
+  </div>
+
+  <div class="filters-section">
+    <div class="search-box">
+      <span class="material-icons search-icon">search</span>
+      <input
+        type="text"
+        placeholder="Search appointments..."
+        [(ngModel)]="searchTerm"
+        (input)="filterAppointments()"
+        class="search-input">
+    </div>
+    <div class="filter-controls">
+      <select [(ngModel)]="statusFilter" (change)="filterAppointments()" class="filter-select">
+        <option value="">All Status</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+      <button class="filter-btn" (click)="clearFilters()">
+        <span class="material-icons">clear</span>
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <div class="appointments-grid" *ngIf="!loading">
+    <div class="appointment-card" *ngFor="let appointment of filteredAppointments">
+      <div class="card-header">
+        <div class="patient-info">
+          <div class="avatar">
+            <span class="material-icons">person</span>
+          </div>
+          <div class="patient-details">
+            <h3>{{ appointment.patient_name }}</h3>
+            <p>ID: {{ appointment.id }}</p>
+          </div>
+        </div>
+        <div class="status-badge" [class]="appointment.status.toLowerCase()">
+          {{ appointment.status }}
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="appointment-details">
+          <div class="detail-item">
+            <span class="material-icons">medical_services</span>
+            <span>{{ appointment.doctor_name }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons">calendar_today</span>
+            <span>{{ appointment.date }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="material-icons">schedule</span>
+            <span>{{ appointment.time }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn edit" (click)="editAppointment(appointment)" title="Edit">
+          <span class="material-icons">edit</span>
+          Edit
+        </button>
+        <button class="action-btn delete" (click)="deleteAppointment(appointment.id)" title="Delete">
+          <span class="material-icons">delete</span>
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <div class="no-data" *ngIf="filteredAppointments.length === 0">
+      <div class="no-data-icon">
+        <span class="material-icons">event_note</span>
+      </div>
+      <h3>No Appointments Found</h3>
+      <p>{{ searchTerm || statusFilter ? 'Try adjusting your search or filters' : 'Start by adding your first appointment' }}</p>
+      <button class="cta-btn" (click)="addAppointment()" *ngIf="!searchTerm && !statusFilter">
+        <span class="material-icons">add</span>
+        Add Appointment
+      </button>
+    </div>
+  </div>
+
+  <div class="loading-state" *ngIf="loading">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+    <p>Loading appointments...</p>
+  </div>
+
+  <app-manage-appointments-form
+    *ngIf="showForm"
+    [appointment]="editingAppointment"
+    (save)="saveAppointment($event)"
+    (cancel)="closeForm()">
+  </app-manage-appointments-form>
+</div>

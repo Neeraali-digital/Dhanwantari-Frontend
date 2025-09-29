@@ -1,0 +1,103 @@
+// SCSS Variables for brand colors
+$primary: #50bfb5;
+$secondary: #1b3563;
+$tertiary: #231f1f;
+$primary-light: #7dd3c0;
+$primary-dark: #3da99f;
+$secondary-light: #2563eb;
+$secondary-dark: #1e40af;
+
+// Modern mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin box-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  } @else {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin border-radius($radius: 8px) {
+  border-radius: $radius;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease) {
+  transition: $property $duration $ease;
+}
+
+// CSS Custom Properties for runtime theming
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --tertiary: #{$tertiary};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  --secondary-light: #{$secondary-light};
+  --secondary-dark: #{$secondary-dark};
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Global responsive utilities */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive text scaling */
+.responsive-text {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.responsive-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Responsive spacing */
+.responsive-padding {
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.responsive-margin {
+  margin: clamp(1rem, 4vw, 2rem);
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 30px 0 !important;
+  }
+
+  .container {
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0 !important;
+  }
+
+  .container {
+    padding: 0 15px !important;
+  }
+}

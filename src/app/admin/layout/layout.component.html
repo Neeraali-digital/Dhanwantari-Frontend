@@ -1,0 +1,80 @@
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="!isSidebarOpen">
+    <div class="sidebar-header">
+      <h3 *ngIf="isSidebarOpen">Admin Panel</h3>
+      <button class="toggle-btn" (click)="toggleSidebar()">
+        <span class="material-icons">{{ isSidebarOpen ? 'chevron_left' : 'chevron_right' }}</span>
+      </button>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="dashboard" routerLinkActive="active">
+            <span class="material-icons">dashboard</span>
+            <span *ngIf="isSidebarOpen">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-appointments" routerLinkActive="active">
+            <span class="material-icons">event</span>
+            <span *ngIf="isSidebarOpen">Appointments</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-blog" routerLinkActive="active">
+            <span class="material-icons">article</span>
+            <span *ngIf="isSidebarOpen">Blog Posts</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-contacts" routerLinkActive="active">
+            <span class="material-icons">contact_mail</span>
+            <span *ngIf="isSidebarOpen">Contacts</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-gallery" routerLinkActive="active">
+            <span class="material-icons">photo_library</span>
+            <span *ngIf="isSidebarOpen">Gallery</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-services" routerLinkActive="active">
+            <span class="material-icons">build</span>
+            <span *ngIf="isSidebarOpen">Services</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content" [class.expanded]="!isSidebarOpen">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">
+          <span class="material-icons">menu</span>
+        </button>
+        <img src="../../../assets/logo.png" alt="logo" class="h-14"/>
+      </div>
+      <div class="user-menu" (click)="toggleUserMenu()">
+        <span class="material-icons user-icon">account_circle</span>
+        <div class="user-dropdown" *ngIf="isUserMenuOpen">
+          <div class="user-info">
+            <p class="user-name">{{ userName }}</p>
+            <p class="user-email">{{ userEmail }}</p>
+          </div>
+          <button (click)="logout()" class="logout-btn">
+            <span class="material-icons">logout</span>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
