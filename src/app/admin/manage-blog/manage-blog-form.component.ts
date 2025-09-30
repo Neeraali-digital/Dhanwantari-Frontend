@@ -1,12 +1,11 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-manage-blog-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, QuillModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './manage-blog-form.component.html',
   styleUrls: ['./manage-blog-form.component.css']
 })

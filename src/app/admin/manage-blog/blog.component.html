@@ -51,9 +51,9 @@
       <div class="empty-icon">
         <span class="material-icons">article</span>
       </div>
-      <h3>No Blog Posts Yet</h3>
-      <p>Create your first blog post to get started.</p>
-      <button class="btn btn-primary" (click)="addNewBlogPost()">
+      <h3 >No Blog Posts Yet</h3>
+      <p class="!pb-5">Create your first blog post to get started.</p>
+      <button class="btn btn-primary pt-5" (click)="addNewBlogPost()">
         <span class="material-icons">add</span>
         Create First Post
       </button>
@@ -67,7 +67,7 @@
     <p>Loading blog posts...</p>
   </div>
 
-  <div *ngIf="error" class="error-state">
+  <!-- <div *ngIf="error" class="error-state !mt-5">
     <div class="error-icon">
       <span class="material-icons">error</span>
     </div>
@@ -77,7 +77,7 @@
       <span class="material-icons">refresh</span>
       Try Again
     </button>
-  </div>
+  </div> -->
 
   <!-- Blog Form Modal -->
   <app-manage-blog-form

@@ -46,9 +46,12 @@
 
       <div class="form-group">
         <label for="content">Content *</label>
-      <quill-editor
-        formControlName="content">
-      </quill-editor>
+        <textarea
+          id="content"
+          formControlName="content"
+          placeholder="Enter blog post content"
+          rows="10"
+          class="form-control"></textarea>
         <div class="error" *ngIf="blogForm.get('content')?.invalid && blogForm.get('content')?.touched">
           Content is required
         </div>
