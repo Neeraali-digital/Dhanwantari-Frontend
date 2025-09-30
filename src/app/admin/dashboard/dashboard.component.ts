@@ -6,6 +6,7 @@ import { BlogService } from '../../core/services/blog.service';
 import { ContactService } from '../../core/services/contact.service';
 import { GalleryService } from '../../core/services/gallery.service';
 import { ServiceService } from '../../core/services/service.service';
+import { AdvertisementService } from 'src/app/core/services/advertisement.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnInit {
     blogPosts: 0,
     contacts: 0,
     galleryImages: 0,
-    services: 0
+    services: 0,
+    advertisements: 0
   };
 
   recentAppointments: any[] = [];
@@ -31,7 +33,8 @@ export class DashboardComponent implements OnInit {
     private blogService: BlogService,
     private contactService: ContactService,
     private galleryService: GalleryService,
-    private serviceService: ServiceService
+    private serviceService: ServiceService,
+    private advertisementService: AdvertisementService
   ) {}
 
   ngOnInit() {
@@ -63,6 +66,11 @@ export class DashboardComponent implements OnInit {
     this.serviceService.getServices().subscribe({
       next: (services) => this.stats.services = services.length,
       error: () => this.stats.services = 0
+    });
+
+    this.advertisementService.getAdvertisements().subscribe({
+      next: (ads: any[]) => this.stats.advertisements = ads.length,
+      error: () => this.stats.advertisements = 0
     });
   }
 

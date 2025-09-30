@@ -1,4 +1,4 @@
-<div class="dashboard-container">
+1<div class="dashboard-container">
   <div class="dashboard-header">
     <h1>Admin Dashboard</h1>
     <p>Welcome back! Here's an overview of your hospital management system.</p>
@@ -61,6 +61,17 @@
           <span class="stat-trend">Available</span>
         </div>
       </div>
+
+      <div class="stat-card advertisements">
+        <div class="stat-icon">
+          <span class="material-icons">campaign</span>
+        </div>
+        <div class="stat-info">
+          <h3>{{ stats.advertisements }}</h3>
+          <p>Advertisements</p>
+          <span class="stat-trend">Active</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -68,7 +79,7 @@
     <div class="recent-section">
       <div class="section-header">
         <h2>Recent Appointments</h2>
-        <button class="view-all-btn" routerLink="manage-appointments">View All</button>
+        <button class="view-all-btn" routerLink="/admin/manage-appointments">View All</button>
       </div>
       <div class="recent-list" *ngIf="!loading">
         <div class="recent-item" *ngFor="let appointment of recentAppointments">
@@ -87,7 +98,7 @@
           </div>
           <h3>No Recent Appointments</h3>
           <p>Start by adding your first appointment</p>
-          <button class="cta-btn" routerLink="manage-appointments">
+          <button class="cta-btn" routerLink="/admin/manage-appointments">
             <span class="material-icons">add</span>
             Add Appointment
           </button>
@@ -105,7 +116,7 @@
           <div class="activity-content">
             <h4>Blog Management</h4>
             <p>Manage your hospital blog posts and articles</p>
-            <button class="activity-btn" routerLink="manage-blog">Manage Blog</button>
+            <button class="activity-btn" routerLink="/admin/manage-blog">Manage Blog</button>
           </div>
         </div>
         <div class="activity-card">
@@ -115,7 +126,7 @@
           <div class="activity-content">
             <h4>Contact Messages</h4>
             <p>View and respond to patient inquiries</p>
-            <button class="activity-btn" routerLink="manage-contacts">View Messages</button>
+            <button class="activity-btn" routerLink="/admin/manage-contacts">View Messages</button>
           </div>
         </div>
         <div class="activity-card">
@@ -125,7 +136,7 @@
           <div class="activity-content">
             <h4>Gallery Management</h4>
             <p>Upload and organize hospital images</p>
-            <button class="activity-btn" routerLink="manage-gallery">Manage Gallery</button>
+            <button class="activity-btn" routerLink="/admin/manage-gallery">Manage Gallery</button>
           </div>
         </div>
         <div class="activity-card">
@@ -135,7 +146,27 @@
           <div class="activity-content">
             <h4>Services</h4>
             <p>Manage hospital services and offerings</p>
-            <button class="activity-btn" routerLink="manage-services">Manage Services</button>
+            <button class="activity-btn" routerLink="/admin/manage-services">Manage Services</button>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon">
+            <span class="material-icons">local_hospital</span>
+          </div>
+          <div class="activity-content">
+            <h4>Health Packages</h4>
+            <p>Manage health checkup packages</p>
+            <button class="activity-btn" routerLink="/admin/manage-checkup-packages">Manage Health Packages</button>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon">
+            <span class="material-icons">campaign</span>
+          </div>
+          <div class="activity-content">
+            <h4>Advertisements</h4>
+            <p>Manage hospital advertisements and promotions</p>
+            <button class="activity-btn" routerLink="/admin/manage-advertisements">Manage Advertisements</button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ServiceService } from '../../core/services/service.service';
 
 @Component({
   selector: 'app-services',
@@ -8,69 +9,79 @@ import { CommonModule } from '@angular/common';
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css']
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
   showAllServices = false;
+  allServices: any[] = [];
+  loading = false;
 
-  allServices = [
+  // Static services
+  staticServices = [
     {
-      icon: 'health_and_safety',
-      title: 'General Medicine',
-      description: 'Primary healthcare services including routine check-ups, preventive care, chronic disease management, and health screenings for all ages.',
-      gradient: 'linear-gradient(135deg, #50bfb5 0%, #3da99f 100%)',
-      color: '#50bfb5',
-      highlighted: true
+      id: 'static-1',
+      name: 'Cardiology',
+      description: 'Comprehensive heart care and cardiovascular treatments',
+      icon: 'favorite'
     },
     {
-      icon: 'local_hospital',
-      title: 'Critical Care',
-      description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
-      gradient: 'linear-gradient(135deg, #50bfb5 0%, #3da99f 100%)',
-      color: '#50bfb5',
-      highlighted: true
+      id: 'static-2',
+      name: 'Neurology',
+      description: 'Advanced brain and nervous system care',
+      icon: 'psychology'
     },
     {
-      icon: 'pregnant_woman',
-      title: 'Obstetrics and Gynecology',
-      description: 'Comprehensive women\'s health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
-      gradient: 'linear-gradient(135deg, #50bfb5 0%, #3da99f 100%)',
-      color: '#50bfb5'
+      id: 'static-3',
+      name: 'Orthopedics',
+      description: 'Bone and muscle care with modern surgical techniques',
+      icon: 'fitness_center'
     },
     {
-      icon: 'elderly',
-      title: 'Geriatrics',
-      description: 'Specialized healthcare for elderly patients focusing on age-related conditions, mobility, cognitive health, and quality of life.',
-      gradient: 'linear-gradient(135deg, #50bfb5 0%, #3da99f 100%)',
-      color: '#50bfb5'
+      id: 'static-4',
+      name: 'Emergency Care',
+      description: '24/7 emergency medical services',
+      icon: 'local_hospital'
     },
     {
-      icon: 'accessibility',
-      title: 'Physiotherapy',
-      description: 'Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.',
-      gradient: 'linear-gradient(135deg, #50bfb5 0%, #3da99f 100%)',
-      color: '#50bfb5'
+      id: 'static-5',
+      name: 'Pediatrics',
+      description: 'Specialized healthcare for children',
+      icon: 'child_care'
     },
     {
-      icon: 'monitor_heart',
-      title: 'Ultrasound Scanning',
-      description: 'Advanced ultrasound imaging services for diagnostic purposes with latest technology and experienced technicians.',
-      gradient: 'linear-gradient(135deg, #1b3563 0%, #1e40af 100%)',
-      color: '#1b3563'
-    },
-    {
-      icon: 'medical_information',
-      title: 'X-ray',
-      description: 'Digital X-ray services for bone fractures, chest imaging, and other diagnostic needs with quick results.',
-      gradient: 'linear-gradient(135deg, #1b3563 0%, #1e40af 100%)',
-      color: '#1b3563'
-    },
-    {
-      icon: 'biotech',
-      title: 'Laboratory',
-      description: 'Complete laboratory testing services including blood tests, urine analysis, and other diagnostic tests with accurate results.',
-      gradient: 'linear-gradient(135deg, #1b3563 0%, #1e40af 100%)',
-      color: '#1b3563'
+      id: 'static-6',
+      name: 'Dermatology',
+      description: 'Skin care and cosmetic treatments',
+      icon: 'spa'
     }
   ];
+
+  constructor(private serviceService: ServiceService) {}
+
+  ngOnInit() {
+    this.loadServices();
+  }
+
+  loadServices() {
+    this.loading = true;
+    // Start with static services
+    this.allServices = [...this.staticServices];
+
+    // Load dynamic services and append them
+    this.serviceService.getServices().subscribe({
+      next: (services) => {
+        const dynamicServices = services.map(service => ({
+          ...service,
+          icon: service.icon || 'health_and_safety'
+        }));
+        this.allServices = [...this.staticServices, ...dynamicServices];
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Failed to load dynamic services', err);
+        // Keep static services even if dynamic load fails
+        this.loading = false;
+      }
+    });
+  }
 
   get displayedServices() {
     return this.showAllServices ? this.allServices : this.allServices.slice(0, 6);

@@ -1,0 +1,62 @@
+<div class="manage-container">
+  <h2>
+    <i class="material-icons">medical_services</i>
+    Manage Checkup Packages
+  </h2>
+
+  <div class="packages-list" *ngIf="!loading">
+    <div class="package-item" *ngFor="let pkg of checkupPackages">
+      <img *ngIf="pkg.image" [src]="pkg.image" [alt]="pkg.name" />
+      <div class="package-info">
+        <h3>{{ pkg.name }}</h3>
+        <p>{{ pkg.description }}</p>
+        <p class="price">₹{{ pkg.price }}</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-delete" (click)="deletePackage(pkg.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="checkupPackages.length === 0 && !loading" class="no-data">
+    No checkup packages found.
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading checkup packages...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div class="package-form-section">
+    <h3>Add New Checkup Package</h3>
+    <form (submit)="savePackage()">
+      <div class="form-group">
+        <label for="name">Package Name</label>
+        <input id="name" type="text" [(ngModel)]="newPackage.name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="newPackage.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="number" [(ngModel)]="newPackage.price" name="price" required />
+      </div>
+      <div class="form-group">
+        <label for="image">Package Image</label>
+        <input id="image" type="file" (change)="onFileSelected($event)" accept="image/*" />
+      </div>
+      <div *ngIf="imagePreview" class="image-preview">
+        <img [src]="imagePreview" alt="Package Preview" />
+      </div>
+      <button type="submit" [disabled]="saving || !newPackage.name || !newPackage.price">
+        {{ saving ? 'Saving...' : 'Add Package' }}
+      </button>
+    </form>
+  </div>
+</div>

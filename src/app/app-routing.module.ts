@@ -11,6 +11,8 @@ import { ManageGalleryComponent } from './admin/manage-gallery/gallery.component
 
 import { AuthGuard } from './core/guards/auth.guard';
 import { ManageServicesComponent } from './admin/manage-services/services.component';
+import { ManageCheckupPackagesComponent } from './admin/manage-checkup-packages/manage-checkup-packages.component';
+import { ManageAdvertisementsComponent } from './admin/manage-advertisements/manage-advertisements.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: 'manage-contacts', component: ManageContactsComponent },
       { path: 'manage-gallery', component: ManageGalleryComponent },
       { path: 'manage-services', component: ManageServicesComponent },
+      { path: 'manage-checkup-packages', component: ManageCheckupPackagesComponent },
+      { path: 'manage-advertisements', component: ManageAdvertisementsComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

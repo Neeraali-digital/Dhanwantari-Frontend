@@ -11,7 +11,10 @@
         <h3>{{ image.title }}</h3>
         <p>{{ image.description }}</p>
       </div>
-      <div class="actions">
+      <div class="actions !px-3">
+        <button class="btn btn-edit bg-primary text-white rounded-md me-2" (click)="editGalleryImage(image)">
+          Edit
+        </button>
         <button class="btn btn-delete" (click)="deleteGalleryImage(image.id)">
           Delete
         </button>
@@ -32,24 +35,31 @@
   </div>
 
   <div class="upload-section">
-    <h3>Add New Image</h3>
-    <form (submit)="uploadImage()">
+    <h3>{{ editingImage ? 'Edit Image' : 'Add New Image' }}</h3>
+    <form (submit)="editingImage ? updateGalleryImage() : uploadImage()">
       <div class="form-group">
         <label for="title">Title</label>
-        <input id="title" type="text" [(ngModel)]="newImage.title" name="title" required />
+        <input id="title" type="text" [(ngModel)]="formData.title" name="title" required />
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" [(ngModel)]="newImage.description" name="description"></textarea>
+        <textarea id="description" [(ngModel)]="formData.description" name="description"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group" *ngIf="!editingImage">
         <label for="imageFile">Select Image</label>
         <input id="imageFile" type="file" (change)="onFileSelected($event)" accept="image/*" required />
+      </div>
+      <div class="form-group" *ngIf="editingImage">
+        <label for="imageFile">Select New Image (optional)</label>
+        <input id="imageFile" type="file" (change)="onFileSelected($event)" accept="image/*" />
       </div>
       <div *ngIf="imagePreview" class="image-preview">
         <img [src]="imagePreview" alt="Image Preview" />
       </div>
-      <button type="submit" [disabled]="!newImage.title || !selectedFile">Upload</button>
+      <div *ngIf="compressing" class="status-indicator">Compressing image...</div>
+      <div *ngIf="uploadLoading" class="status-indicator">{{ editingImage ? 'Updating' : 'Uploading' }} image...</div>
+      <button type="submit" [disabled]="!(editingImage ? editingImage.title : newImage.title) || (!editingImage && !selectedFile) || compressing || uploadLoading">{{ editingImage ? 'Update' : 'Upload' }}</button>
+      <button type="button" *ngIf="editingImage" (click)="cancelEdit()">Cancel</button>
     </form>
   </div>
 </div>

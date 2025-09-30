@@ -42,13 +42,18 @@
           <div class="avatar">
             <span class="material-icons">person</span>
           </div>
-          <div class="patient-details">
-            <h3>{{ appointment.patient_name }}</h3>
+          <div class="patient-details ">
+            <h3 class="!text-primary text-2xl">{{ appointment.patient_name }}</h3>
             <p>ID: {{ appointment.id }}</p>
           </div>
         </div>
-        <div class="status-badge" [class]="appointment.status.toLowerCase()">
-          {{ appointment.status }}
+        <div class="status-badge" [ngClass]="{
+          'pending': appointment.status === 'pending',
+          'confirmed': appointment.status === 'confirmed',
+          'completed': appointment.status === 'completed',
+          'cancelled': appointment.status === 'cancelled'
+        }">
+          {{ appointment.status | titlecase }}
         </div>
       </div>
 
@@ -56,7 +61,7 @@
         <div class="appointment-details">
           <div class="detail-item">
             <span class="material-icons">medical_services</span>
-            <span>{{ appointment.doctor_name }}</span>
+            <span class="!text-primary !text-lg">{{ appointment.doctor_name }}</span>
           </div>
           <div class="detail-item">
             <span class="material-icons">calendar_today</span>

@@ -23,7 +23,8 @@ export class ManageBlogFormComponent implements OnChanges {
       author: ['', Validators.required],
       excerpt: [''],
       tags: [''],
-      published: [true]
+      published: [true],
+      image: [null]
     });
   }
 
@@ -43,5 +44,12 @@ export class ManageBlogFormComponent implements OnChanges {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.blogForm.patchValue({ image: file });
+    }
   }
 }

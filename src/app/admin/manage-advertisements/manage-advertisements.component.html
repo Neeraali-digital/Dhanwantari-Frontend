@@ -1,0 +1,111 @@
+<div class="manage-advertisements">
+  <div class="header">
+    <h2>Manage Advertisements</h2>
+    <button class="btn btn-primary" (click)="isEditing = !isEditing" *ngIf="!isEditing">
+      Add New Advertisement
+    </button>
+  </div>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Create/Edit Form -->
+  <div class="form-container" *ngIf="isEditing">
+    <h3>{{ selectedAdvertisement ? 'Edit Advertisement' : 'Create New Advertisement' }}</h3>
+    <form (ngSubmit)="selectedAdvertisement ? updateAdvertisement() : createAdvertisement()">
+      <div class="form-group">
+        <label for="title">Title *</label>
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="currentTitle"
+          name="title"
+          required
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="currentDescription"
+          name="description"
+          rows="3"
+          class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="selectedAdvertisement ? onEditFileChange($event) : onFileChange($event)"
+          accept="image/*"
+          class="form-control">
+        <div class="image-preview" *ngIf="isSelectedImageString">
+          <img [src]="selectedAdvertisement.image" alt="Current image" class="preview-img">
+        </div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            [(ngModel)]="currentIsActive"
+            name="is_active">
+          <span class="checkmark"></span>
+          Active
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="selectedAdvertisement ? cancelEdit() : isEditing = false">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+          {{ selectedAdvertisement ? 'Update' : 'Create' }} Advertisement
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Advertisements List -->
+  <div class="advertisements-list">
+    <div class="loading" *ngIf="isLoading && advertisements.length === 0">
+      Loading advertisements...
+    </div>
+
+    <div class="advertisement-card" *ngFor="let ad of advertisements">
+      <div class="card-header">
+        <h4>{{ ad.title }}</h4>
+        <div class="card-actions">
+          <button class="btn btn-sm btn-edit" (click)="editAdvertisement(ad)">Edit</button>
+          <button class="btn btn-sm btn-delete" (click)="deleteAdvertisement(ad.id)">Delete</button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="image-container" *ngIf="ad.image">
+          <img [src]="ad.image" alt="{{ ad.title }}" class="ad-image">
+        </div>
+
+        <p class="description" *ngIf="ad.description">{{ ad.description }}</p>
+
+        <div class="status">
+          <span class="status-badge" [class.active]="ad.is_active" [class.inactive]="!ad.is_active">
+            {{ ad.is_active ? 'Active' : 'Inactive' }}
+          </span>
+        </div>
+
+        <div class="created-date">
+          Created: {{ ad.created_at | date:'medium' }}
+        </div>
+      </div>
+    </div>
+
+    <div class="no-advertisements*ngIf="!isLoading && advertisements.length === 0">
+      No advertisements found. Create your first advertisement!
+    </div>
+  </div>
+</div>

@@ -20,11 +20,31 @@ export class BlogService {
   }
 
   createBlogPost(blogPost: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, blogPost);
+    if (blogPost.image) {
+      const formData = new FormData();
+      Object.keys(blogPost).forEach(key => {
+        if (blogPost[key] !== null && blogPost[key] !== undefined) {
+          formData.append(key, blogPost[key]);
+        }
+      });
+      return this.http.post<any>(this.apiUrl, formData);
+    } else {
+      return this.http.post<any>(this.apiUrl, blogPost);
+    }
   }
 
   updateBlogPost(id: number, blogPost: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}${id}/`, blogPost);
+    if (blogPost.image) {
+      const formData = new FormData();
+      Object.keys(blogPost).forEach(key => {
+        if (blogPost[key] !== null && blogPost[key] !== undefined) {
+          formData.append(key, blogPost[key]);
+        }
+      });
+      return this.http.put<any>(`${this.apiUrl}${id}/`, formData);
+    } else {
+      return this.http.put<any>(`${this.apiUrl}${id}/`, blogPost);
+    }
   }
 
   deleteBlogPost(id: number): Observable<any> {

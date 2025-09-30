@@ -22,6 +22,7 @@ export class ManageAppointmentsFormComponent implements OnChanges {
       doctor_name: ['', Validators.required],
       date: ['', Validators.required],
       time: ['', Validators.required],
+      reason: ['', Validators.required],
       status: ['pending', Validators.required]
     });
   }

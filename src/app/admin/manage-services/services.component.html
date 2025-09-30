@@ -5,7 +5,7 @@
   </h2>
 
   <div class="services-list" *ngIf="!loading">
-    <div class="service-item" *ngFor="let service of services">
+    <div class="service-item" *ngFor="let service of allServices">
       <h3>{{ service.name }}</h3>
       <p>{{ service.description }}</p>
       <div class="actions">
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div *ngIf="services.length === 0 && !loading" class="no-data">
+  <div *ngIf="allServices.length === 0 && !loading" class="no-data">
     No services found.
   </div>
 

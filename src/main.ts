@@ -15,6 +15,8 @@ import { ManageBlogComponent } from './app/admin/manage-blog/blog.component';
 import { ManageContactsComponent } from './app/admin/manage-contacts/contact.component';
 import { ManageGalleryComponent } from './app/admin/manage-gallery/gallery.component';
 import { ManageServicesComponent } from './app/admin/manage-services/services.component';
+import { ManageCheckupPackagesComponent } from './app/admin/manage-checkup-packages/manage-checkup-packages.component';
+import { ManageAdvertisementsComponent } from './app/admin/manage-advertisements/manage-advertisements.component';
 import { AuthGuard } from './app/core/guards/auth.guard';
 import { AuthInterceptor } from './app/core/interceptors/auth.interceptor';
 import { Routes } from '@angular/router';
@@ -33,6 +35,8 @@ const routes: Routes = [
       { path: 'manage-contacts', component: ManageContactsComponent },
       { path: 'manage-gallery', component: ManageGalleryComponent },
       { path: 'manage-services', component: ManageServicesComponent },
+      { path: 'manage-checkup-packages', component: ManageCheckupPackagesComponent },
+      { path: 'manage-advertisements', component: ManageAdvertisementsComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

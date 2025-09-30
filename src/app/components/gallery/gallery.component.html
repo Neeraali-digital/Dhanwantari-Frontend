@@ -4,19 +4,33 @@
       <h2 style="font-size: 48px; font-weight: 800; color: #1e293b; margin-bottom: 16px;">Hospital Gallery</h2>
       <p style="font-size: 20px; color: #64748b;">Take a virtual tour of our modern facilities</p>
     </div>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-      @for (image of galleryImages; track image.title) {
-        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;"
-             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <div style="width: 100%; height: 250px; background-image: url({{ image.imageUrl }}); background-size: cover; background-position: center; border-radius: 12px 12px 0 0;">
+
+    @if (loading) {
+      <div style="text-align: center; padding: 40px;">
+        <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p style="margin-top: 20px; color: #64748b;">Loading gallery...</p>
+      </div>
+    } @else {
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        @for (image of galleryImages; track image.id) {
+          <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;"
+               onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="width: 100%; height: 250px; background-image: url({{ image.image }}); background-size: cover; background-position: center; border-radius: 12px 12px 0 0;">
+            </div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 20px;">
+              <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">{{ image.title }}</h3>
+              <p style="font-size: 14px; opacity: 0.9;">{{ image.description }}</p>
+            </div>
           </div>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 20px;">
-            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">{{ image.title }}</h3>
-            <p style="font-size: 14px; opacity: 0.9;">{{ image.description }}</p>
-          </div>
-        </div>
-      }
-    </div>
+        }
+      </div>
+    }
   </div>
 </section>
+
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>

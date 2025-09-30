@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CheckupPackageService } from '../../core/services/checkup-package.service';
 
 @Component({
   selector: 'app-health-packages',
   standalone: true,
+  imports: [CommonModule],
   template: `
     <section style="padding: 120px 40px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: 100vh;">
       <div style="max-width: 1400px; margin: 0 auto;">
@@ -181,4 +184,27 @@ import { Component } from '@angular/core';
     </section>
   `
 })
-export class HealthPackagesComponent {}
+export class HealthPackagesComponent implements OnInit {
+  packages: any[] = [];
+  loading = false;
+
+  constructor(private checkupPackageService: CheckupPackageService) {}
+
+  ngOnInit() {
+    this.loadPackages();
+  }
+
+  loadPackages() {
+    this.loading = true;
+    this.checkupPackageService.getCheckupPackages().subscribe({
+      next: (data) => {
+        this.packages = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error loading packages:', error);
+        this.loading = false;
+      }
+    });
+  }
+}

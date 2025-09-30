@@ -45,6 +45,18 @@
             <span *ngIf="isSidebarOpen">Services</span>
           </a>
         </li>
+        <li>
+          <a routerLink="manage-advertisements" routerLinkActive="active">
+            <span class="material-icons">campaign</span>
+            <span *ngIf="isSidebarOpen">Advertisements</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="manage-checkup-packages" routerLinkActive="active">
+            <span class="material-icons">medical_services</span>
+            <span *ngIf="isSidebarOpen">Checkup Packages</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </aside>

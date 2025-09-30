@@ -5,27 +5,69 @@
       <h2 class="text-4xl font-bold text-blue-900 mb-4">Health & Community Blog</h2>
       <p class="text-xl text-gray-600">Stay informed with our latest health tips and community news</p>
     </div>
-    
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @for (post of blogPosts(); track post.id) {
+      @for (post of displayedPosts(); track post.id) {
         <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-          <div class="h-48 bg-gradient-to-br from-blue-400 to-teal-500 flex items-center justify-center">
-            <span class="material-icons text-white text-6xl">article</span>
-          </div>
+          @if (post.image) {
+            <img [src]="post.image" alt="{{ post.title }}" class="w-full h-48 object-cover">
+          } @else {
+            <div class="h-48 bg-gradient-to-br from-blue-400 to-teal-500 flex items-center justify-center">
+              <span class="material-icons text-white text-6xl">article</span>
+            </div>
+          }
           <div class="p-6">
             <div class="flex items-center mb-2">
-              <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-full">{{ post.category }}</span>
-              <span class="text-gray-500 text-sm ml-2">{{ post.date }}</span>
+              <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-full">Health</span>
+              <span class="text-gray-500 text-sm ml-2">{{ post.published_date | date:'shortDate' }}</span>
             </div>
             <h3 class="text-xl font-bold text-blue-900 mb-2">{{ post.title }}</h3>
-            <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>
-            <button class="text-teal-600 hover:text-teal-700 font-semibold">Read More →</button>
+            <p class="text-gray-600 mb-4">{{ post.content | slice:0:100 }}...</p>
+            <button (click)="openModal(post)" class="text-teal-600 hover:text-teal-700 font-semibold">Read More →</button>
           </div>
         </div>
       }
     </div>
+
+    @if (blogPosts().length > 3) {
+      <div class="text-center mt-12">
+        <button (click)="toggleShowAll()" class="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          {{ showAll() ? 'Show Less' : 'Show More' }}
+        </button>
+      </div>
+    }
   </div>
 </section>
+
+<!-- Modal for detailed blog view -->
+@if (showModal && selectedPost) {
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <h2 class="text-3xl font-bold text-blue-900 mb-2">{{ selectedPost.title }}</h2>
+            <div class="flex items-center text-gray-600">
+              <span class="mr-4">By {{ selectedPost.author }}</span>
+              <span>{{ selectedPost.published_date | date:'mediumDate' }}</span>
+            </div>
+          </div>
+          <button (click)="closeModal()" class="text-gray-400 hover:text-gray-600">
+            <span class="material-icons text-3xl">close</span>
+          </button>
+        </div>
+
+        @if (selectedPost.image) {
+          <img [src]="selectedPost.image" alt="{{ selectedPost.title }}" class="w-full h-64 object-cover rounded-lg mb-6">
+        }
+
+        <div class="prose max-w-none">
+          <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{ selectedPost.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+}
 
 <!-- Newsletter Signup -->
 <section class="py-20 bg-blue-900 text-white">

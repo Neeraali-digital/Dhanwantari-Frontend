@@ -1,94 +1,118 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ServiceService } from '../../core/services/service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-manage-services',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css']
 })
 export class ManageServicesComponent implements OnInit {
-  services: any[] = [];
+  services = [
+    { id: 1, name: 'Cardiology', description: 'Heart related services', icon: 'favorite' },
+    { id: 2, name: 'Neurology', description: 'Brain and nervous system', icon: 'psychology' },
+    { id: 3, name: 'Orthopedics', description: 'Bone and muscle care', icon: 'fitness_center' }
+  ];
+
+  dynamicServices: any[] = [];
+  editingService: any = null;
+  serviceForm = {
+    name: '',
+    description: '',
+    category: ''
+  };
   loading = false;
   error = '';
-  serviceForm = { name: '', description: '', category: '' };
-  editingService: any = null;
 
-  constructor(private serviceService: ServiceService) {}
+  constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.loadServices();
+  ngOnInit(): void {
+    this.loadDynamicServices();
   }
 
-  loadServices() {
+  loadDynamicServices() {
     this.loading = true;
-    this.serviceService.getServices().subscribe({
-      next: (services) => {
-        this.services = services;
+    this.http.get<any[]>('http://localhost:8000/api/services/').subscribe({
+      next: (data) => {
+        this.dynamicServices = data;
         this.loading = false;
       },
-      error: (err) => {
-        this.error = 'Failed to load services';
+      error: (error) => {
+        this.error = 'Failed to load dynamic services';
         this.loading = false;
+        console.error('Failed to load dynamic services', error);
       }
     });
   }
 
-  saveService() {
-    if (!this.serviceForm.name) return;
+  get allServices() {
+    return [...this.services, ...this.dynamicServices];
+  }
 
+  editService(service: any) {
+    this.editingService = service;
+    this.serviceForm = {
+      name: service.name,
+      description: service.description,
+      category: service.category || ''
+    };
+  }
+
+  saveService() {
+    if (!this.serviceForm.name.trim()) {
+      this.error = 'Service name is required';
+      return;
+    }
+    this.error = '';
     if (this.editingService) {
-      this.serviceService.updateService(this.editingService.id, this.serviceForm).subscribe({
-        next: (updatedService) => {
-          const index = this.services.findIndex(s => s.id === this.editingService.id);
-          if (index !== -1) {
-            this.services[index] = updatedService;
-          }
-          this.resetForm();
+      // Update existing service
+      this.http.put(`http://localhost:8000/api/services/${this.editingService.id}/`, this.serviceForm).subscribe({
+        next: () => {
+          this.loadDynamicServices();
+          this.cancelEdit();
         },
-        error: () => {
+        error: (error) => {
           this.error = 'Failed to update service';
+          console.error('Failed to update service', error);
         }
       });
     } else {
-      this.serviceService.createService(this.serviceForm).subscribe({
-        next: (newService) => {
-          this.services.unshift(newService);
-          this.resetForm();
+      // Create new service
+      this.http.post('http://localhost:8000/api/services/', this.serviceForm).subscribe({
+        next: () => {
+          this.loadDynamicServices();
+          this.cancelEdit();
         },
-        error: () => {
-          this.error = 'Failed to add service';
+        error: (error) => {
+          this.error = 'Failed to create service';
+          console.error('Failed to create service', error);
         }
       });
     }
   }
 
-  editService(service: any) {
-    this.editingService = service;
-    this.serviceForm = { ...service };
-  }
-
   cancelEdit() {
-    this.resetForm();
-  }
-
-  resetForm() {
-    this.serviceForm = { name: '', description: '', category: '' };
     this.editingService = null;
+    this.serviceForm = {
+      name: '',
+      description: '',
+      category: ''
+    };
     this.error = '';
   }
 
   deleteService(id: number) {
     if (confirm('Are you sure you want to delete this service?')) {
-      this.serviceService.deleteService(id).subscribe({
+      this.http.delete(`http://localhost:8000/api/services/${id}/`).subscribe({
         next: () => {
-          this.services = this.services.filter(s => s.id !== id);
+          this.loadDynamicServices();
         },
-        error: (err) => {
+        error: (error) => {
           this.error = 'Failed to delete service';
+          console.error('Failed to delete service', error);
         }
       });
     }
