@@ -26,7 +26,7 @@ export class ServicesComponent implements OnInit {
       id: 'static-2',
       name: 'Critical Care',
       description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
-      icon: 'person_heart'
+      icon: 'online_prediction'
     },
     {
       id: 'static-3',
@@ -44,7 +44,7 @@ export class ServicesComponent implements OnInit {
       id: 'static-5',
       name: 'Physiotherapy',
       description: 'Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.',
-      icon: 'physical_therapy'
+      icon: 'favorite'
     },
     {
       id: 'static-6',
@@ -56,7 +56,7 @@ export class ServicesComponent implements OnInit {
       id: 'static-7',
       name: 'X-ray',
       description: 'Digital X-ray services for bone fractures, chest imaging, and other diagnostic needs with quick results.',
-      icon: 'android_wifi_3_bar'
+      icon: 'online_prediction'
     },
     {
       id: 'static-8',
