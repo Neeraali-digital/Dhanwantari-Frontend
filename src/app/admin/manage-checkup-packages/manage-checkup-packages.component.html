@@ -44,6 +44,10 @@
         <label for="price">Price</label>
         <input id="price" type="number" [(ngModel)]="newPackage.price" name="price" required />
       </div>
+      <div class="form-group">
+        <label for="benefits">Benefits (one per line)</label>
+        <textarea id="benefits" [(ngModel)]="benefitsText" name="benefits" rows="5" placeholder="Enter each benefit on a new line"></textarea>
+      </div>
       <button type="submit" [disabled]="saving || !newPackage.name || !newPackage.price" style="background: #15afa7; color: white; padding: 12px 24px; border: none; border-radius: 12px; cursor: pointer; font-weight: 600;">
         {{ saving ? 'Saving...' : 'Add Package' }}
       </button>

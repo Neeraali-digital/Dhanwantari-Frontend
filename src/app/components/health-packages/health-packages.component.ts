@@ -24,126 +24,32 @@ import { CheckupPackageService } from '../../core/services/checkup-package.servi
 
         <!-- Packages Grid -->
         <div class="packages-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
-          
-          <!-- Basic Package -->
-          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s; border: 2px solid transparent; position: relative; overflow: hidden;"
+          <div *ngFor="let pkg of packages; let i = index"
+               [style.background]="i === 1 ? 'linear-gradient(135deg, #15afa7 0%, #0d8a82 100%)' : 'white'"
+               [style.color]="i === 1 ? 'white' : '#1e293b'"
+               style="border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s; border: 2px solid transparent; position: relative; overflow: hidden;"
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(102, 126, 234, 0.15)'; this.style.borderColor='#667eea'"
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
-            <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
+            <div *ngIf="i === 0" style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
               POPULAR
             </div>
-            <div style="font-size: 48px; margin-bottom: 24px;">🩺</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Basic Health Checkup</h3>
-            <div style="font-size: 36px; font-weight: 800; color: #15afa7; margin-bottom: 8px;">₹2,999</div>
-            <div style="color: #64748b; margin-bottom: 32px; text-decoration: line-through;">₹4,500</div>
-            
-            <div style="margin-bottom: 32px;">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Complete Blood Count (CBC)</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Lipid Profile</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Blood Sugar (Fasting)</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Kidney Function Test</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Liver Function Test</span>
-              </div>
-            </div>
-            
-            <button style="width: 100%; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
-                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(21, 175, 167, 0.4)'"
-                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-              📅 Book Now
-            </button>
-          </div>
-
-          <!-- Premium Package -->
-          <div style="background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(21, 175, 167, 0.3); transition: all 0.3s; position: relative; overflow: hidden; color: white;"
-               onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 60px rgba(21, 175, 167, 0.4)'"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(21, 175, 167, 0.3)'">
-            <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #1f2937; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
+            <div *ngIf="i === 1" style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #1f2937; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
               RECOMMENDED
             </div>
-            <div style="font-size: 48px; margin-bottom: 24px;">🏆</div>
-            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Premium Health Checkup</h3>
-            <div style="font-size: 36px; font-weight: 800; margin-bottom: 8px;">₹7,999</div>
-            <div style="color: rgba(255,255,255,0.7); margin-bottom: 32px; text-decoration: line-through;">₹12,000</div>
-            
-            <div style="margin-bottom: 32px;">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</div>
-                <span>All Basic Package Tests</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</div>
-                <span>ECG & Echo Cardiogram</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</div>
-                <span>Chest X-Ray</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</div>
-                <span>Thyroid Function Test</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</div>
-                <span>Doctor Consultation</span>
-              </div>
-            </div>
-            
-            <button style="width: 100%; background: rgba(255,255,255,0.2); color: white; padding: 16px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px);"
-                    onmouseover="this.style.background='rgba(255,255,255,0.3)'; this.style.borderColor='rgba(255,255,255,0.5)'"
-                    onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.3)'">
-              📅 Book Now
-            </button>
-          </div>
-
-          <!-- Executive Package -->
-          <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s; border: 2px solid transparent; position: relative; overflow: hidden;"
-               onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(102, 126, 234, 0.15)'; this.style.borderColor='#667eea'"
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
-            <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
+            <div *ngIf="i === 2" style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 8px 16px; border-radius: 0 24px 0 16px; font-size: 12px; font-weight: 600;">
               EXECUTIVE
             </div>
-            <div style="font-size: 48px; margin-bottom: 24px;">💎</div>
-            <h3 style="font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">Executive Health Checkup</h3>
-            <div style="font-size: 36px; font-weight: 800; color: #15afa7; margin-bottom: 8px;">₹15,999</div>
-            <div style="color: #64748b; margin-bottom: 32px; text-decoration: line-through;">₹25,000</div>
-            
+            <div style="font-size: 48px; margin-bottom: 24px;">{{ i === 0 ? '🩺' : i === 1 ? '🏆' : '💎' }}</div>
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">{{ pkg.name }}</h3>
+            <div style="font-size: 36px; font-weight: 800; color: #15afa7; margin-bottom: 8px;">₹{{ pkg.price }}</div>
+
             <div style="margin-bottom: 32px;">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">All Premium Package Tests</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Full Body MRI Scan</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Cancer Markers</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Specialist Consultations</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
-                <span style="color: #374151;">Personalized Health Report</span>
+              <div *ngFor="let benefit of pkg.benefits" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</div>
+                <span>{{ benefit }}</span>
               </div>
             </div>
-            
+
             <button style="width: 100%; background: linear-gradient(135deg, #15afa7 0%, #0d8a82 100%); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(21, 175, 167, 0.4)'"
                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">

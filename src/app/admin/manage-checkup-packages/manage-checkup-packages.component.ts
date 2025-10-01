@@ -15,7 +15,7 @@ export class ManageCheckupPackagesComponent implements OnInit {
   checkupPackages: any[] = [];
   loading = false;
   error = '';
-  newPackage = { name: '', description: '', price: 0, image: null };
+  newPackage = { name: '', description: '', price: 0, image: null, benefits: [] as string[] };
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   saving = false;
@@ -60,6 +60,7 @@ export class ManageCheckupPackagesComponent implements OnInit {
     formData.append('name', this.newPackage.name);
     formData.append('description', this.newPackage.description);
     formData.append('price', this.newPackage.price.toString());
+    formData.append('benefits', JSON.stringify(this.newPackage.benefits));
     if (this.selectedFile) {
       formData.append('image', this.selectedFile);
     }
@@ -78,7 +79,7 @@ export class ManageCheckupPackagesComponent implements OnInit {
   }
 
   resetForm() {
-    this.newPackage = { name: '', description: '', price: 0, image: null };
+    this.newPackage = { name: '', description: '', price: 0, image: null, benefits: [] as string[] };
     this.selectedFile = null;
     this.imagePreview = null;
     this.error = '';
@@ -95,5 +96,13 @@ export class ManageCheckupPackagesComponent implements OnInit {
         }
       });
     }
+  }
+
+  get benefitsText(): string {
+    return this.newPackage.benefits.join('\n');
+  }
+
+  set benefitsText(value: string) {
+    this.newPackage.benefits = value.split('\n').map(b => b.trim()).filter(b => b) as string[];
   }
 }
