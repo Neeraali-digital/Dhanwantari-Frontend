@@ -35,7 +35,7 @@ export class ManageServicesComponent implements OnInit {
 
   loadDynamicServices() {
     this.loading = true;
-    this.http.get<any[]>('http://34.229.12.11:8000/api/services/').subscribe({
+    this.http.get<any[]>('https://api.neeraali.com/api/services/').subscribe({
       next: (data) => {
         this.dynamicServices = data;
         this.loading = false;
@@ -69,7 +69,7 @@ export class ManageServicesComponent implements OnInit {
     this.error = '';
     if (this.editingService) {
       // Update existing service
-      this.http.put(`http://34.229.12.11:8000/api/services/${this.editingService.id}/`, this.serviceForm).subscribe({
+      this.http.put(`https://api.neeraali.com/api/services/${this.editingService.id}/`, this.serviceForm).subscribe({
         next: () => {
           this.loadDynamicServices();
           this.cancelEdit();
@@ -81,7 +81,7 @@ export class ManageServicesComponent implements OnInit {
       });
     } else {
       // Create new service
-      this.http.post('http://34.229.12.11:8000/api/services/', this.serviceForm).subscribe({
+      this.http.post('https://api.neeraali.com/api/services/', this.serviceForm).subscribe({
         next: () => {
           this.loadDynamicServices();
           this.cancelEdit();
@@ -106,7 +106,7 @@ export class ManageServicesComponent implements OnInit {
 
   deleteService(id: number) {
     if (confirm('Are you sure you want to delete this service?')) {
-      this.http.delete(`http://34.229.12.11:8000/api/services/${id}/`).subscribe({
+      this.http.delete(`https://api.neeraali.com/api/services/${id}/`).subscribe({
         next: () => {
           this.loadDynamicServices();
         },

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://34.229.12.11/api/'
+  apiUrl: 'https://api.neeraali.com/api/'
 };

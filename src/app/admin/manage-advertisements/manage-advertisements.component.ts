@@ -32,7 +32,7 @@ export class ManageAdvertisementsComponent implements OnInit {
 
   loadAdvertisements() {
     this.isLoading = true;
-    this.http.get('http://34.229.12.11:8000/api/advertisements/').subscribe({
+    this.http.get('https://api.neeraali.com/api/advertisements/').subscribe({
       next: (data: any) => {
         this.advertisements = data;
         this.isLoading = false;
@@ -67,7 +67,7 @@ export class ManageAdvertisementsComponent implements OnInit {
     }
 
     this.isLoading = true;
-    this.http.post('http://34.229.12.11:8000/api/advertisements/', formData).subscribe({
+    this.http.post('https://api.neeraali.com/api/advertisements/', formData).subscribe({
       next: () => {
         this.loadAdvertisements();
         this.resetForm();
@@ -101,7 +101,7 @@ export class ManageAdvertisementsComponent implements OnInit {
     }
 
     this.isLoading = true;
-    this.http.put(`http://34.229.12.11:8000/api/advertisements/${this.selectedAdvertisement.id}/`, formData).subscribe({
+    this.http.put(`https://api.neeraali.com/api/advertisements/${this.selectedAdvertisement.id}/`, formData).subscribe({
       next: () => {
         this.loadAdvertisements();
         this.cancelEdit();
@@ -118,7 +118,7 @@ export class ManageAdvertisementsComponent implements OnInit {
   deleteAdvertisement(id: number) {
     if (confirm('Are you sure you want to delete this advertisement?')) {
       this.isLoading = true;
-      this.http.delete(`http://34.229.12.11:8000/api/advertisements/${id}/`).subscribe({
+      this.http.delete(`https://api.neeraali.com/api/advertisements/${id}/`).subscribe({
         next: () => {
           this.loadAdvertisements();
           this.isLoading = false;

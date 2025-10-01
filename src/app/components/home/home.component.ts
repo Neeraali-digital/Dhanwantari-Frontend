@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         const adSlides = activeAds.map(ad => ({
           name: ad.title,
           description: ad.description || '',
-          image: ad.image.startsWith('http') ? ad.image : 'http://34.229.12.11' + ad.image
+          image: ad.image.startsWith('https') ? ad.image : 'https://api.neeraali.com' + ad.image
         }));
         this.slides = [...this.specialties, ...adSlides];
         this.startSlideShow();
