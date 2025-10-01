@@ -18,39 +18,51 @@ export class ServicesComponent implements OnInit {
   staticServices = [
     {
       id: 'static-1',
-      name: 'Cardiology',
-      description: 'Comprehensive heart care and cardiovascular treatments',
-      icon: 'favorite'
+      name: 'General Medicine',
+      description: 'Primary healthcare services including routine check-ups, preventive care, chronic disease management, and health screenings for all ages.',
+      icon: 'medical_services'
     },
     {
       id: 'static-2',
-      name: 'Neurology',
-      description: 'Advanced brain and nervous system care',
-      icon: 'psychology'
+      name: 'Critical Care',
+      description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
+      icon: 'person_heart'
     },
     {
       id: 'static-3',
-      name: 'Orthopedics',
-      description: 'Bone and muscle care with modern surgical techniques',
-      icon: 'fitness_center'
+      name: 'Obstetrics and Gynecology',
+      description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
+      icon: 'gynecology'
     },
     {
       id: 'static-4',
-      name: 'Emergency Care',
-      description: '24/7 emergency medical services',
-      icon: 'local_hospital'
+      name: 'Geriatrics',
+      description: 'Specialized healthcare for elderly patients focusing on age-related conditions, mobility, cognitive health, and quality of life.',
+      icon: 'elderly_woman'
     },
     {
       id: 'static-5',
-      name: 'Pediatrics',
-      description: 'Specialized healthcare for children',
-      icon: 'child_care'
+      name: 'Physiotherapy',
+      description: 'Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.',
+      icon: 'physical_therapy'
     },
     {
       id: 'static-6',
-      name: 'Dermatology',
-      description: 'Skin care and cosmetic treatments',
-      icon: 'spa'
+      name: 'Ultrasound Scanning',
+      description: 'Advanced ultrasound imaging services for diagnostic purposes with latest technology and experienced technicians.',
+      icon: 'familiar_face_and_zone'
+    },
+    {
+      id: 'static-7',
+      name: 'X-ray',
+      description: 'Digital X-ray services for bone fractures, chest imaging, and other diagnostic needs with quick results.',
+      icon: 'android_wifi_3_bar'
+    },
+    {
+      id: 'static-8',
+      name: 'Laboratory',
+      description: 'Complete laboratory testing services including blood tests, urine analysis, and other diagnostic tests with accurate results.',
+      icon: 'biotech'
     }
   ];
 
