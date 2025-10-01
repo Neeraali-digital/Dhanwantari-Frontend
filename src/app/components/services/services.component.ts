@@ -26,13 +26,13 @@ export class ServicesComponent implements OnInit {
       id: 'static-2',
       name: 'Critical Care',
       description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
-      icon: 'online_prediction'
+      icon: 'monitor_heart'
     },
     {
       id: 'static-3',
       name: 'Obstetrics and Gynecology',
       description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
-      icon: 'gynecology'
+      icon: 'pregnant_woman'
     },
     {
       id: 'static-4',
@@ -44,19 +44,19 @@ export class ServicesComponent implements OnInit {
       id: 'static-5',
       name: 'Physiotherapy',
       description: 'Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.',
-      icon: 'favorite'
+      icon: 'fitness_center'
     },
     {
       id: 'static-6',
       name: 'Ultrasound Scanning',
       description: 'Advanced ultrasound imaging services for diagnostic purposes with latest technology and experienced technicians.',
-      icon: 'familiar_face_and_zone'
+      icon: 'analytics'
     },
     {
       id: 'static-7',
       name: 'X-ray',
       description: 'Digital X-ray services for bone fractures, chest imaging, and other diagnostic needs with quick results.',
-      icon: 'online_prediction'
+      icon: 'fullscreen'
     },
     {
       id: 'static-8',
