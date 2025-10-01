@@ -11,10 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./services.component.css']
 })
 export class ManageServicesComponent implements OnInit {
-  services = [
-    { id: 1, name: 'Cardiology', description: 'Heart related services', icon: 'favorite' },
-    { id: 2, name: 'Neurology', description: 'Brain and nervous system', icon: 'psychology' },
-    { id: 3, name: 'Orthopedics', description: 'Bone and muscle care', icon: 'fitness_center' }
+services = [
   ];
 
   dynamicServices: any[] = [];
