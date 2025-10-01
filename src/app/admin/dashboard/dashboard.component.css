@@ -49,11 +49,12 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.stat-card.appointments { border-left-color: #007bff; }
-.stat-card.blog { border-left-color: #28a745; }
-.stat-card.contacts { border-left-color: #ffc107; }
-.stat-card.gallery { border-left-color: #e83e8c; }
-.stat-card.services { border-left-color: #6f42c1; }
+.stat-card.appointments { border-left-color: var(--primary); }
+.stat-card.blog { border-left-color: var(--secondary); }
+.stat-card.contacts { border-left-color: var(--primary-light); }
+.stat-card.gallery { border-left-color: var(--secondary-light); }
+.stat-card.services { border-left-color: var(--primary-dark); }
+.stat-card.advertisements { border-left-color: var(--secondary-dark); }
 
 .stat-icon {
   background: var(--primary);
@@ -377,6 +378,37 @@
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
+}
+
+.charts-section {
+  margin-bottom: 3rem;
+}
+
+.charts-section h2 {
+  margin-bottom: 2rem;
+  color: var(--secondary);
+  text-align: center;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.chart-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.chart-card h3 {
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+  text-align: center;
+  font-size: 1.3rem;
 }
 
 @media (max-width: 768px) {

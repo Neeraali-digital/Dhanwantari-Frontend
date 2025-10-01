@@ -1,19 +1,36 @@
 <div class="manage-advertisements">
-  <div class="header">
-    <h2>Manage Advertisements</h2>
-    <button class="btn btn-primary" (click)="isEditing = !isEditing" *ngIf="!isEditing">
+  <div class="header-section">
+    <div class="header-content">
+      <div class="header-icon">
+        <span class="material-icons">campaign</span>
+      </div>
+      <div class="header-text">
+        <h1>Manage Advertisements</h1>
+        <p>Create and manage your advertisement campaigns</p>
+      </div>
+    </div>
+    <button class="btn btn-primary add-btn" (click)="isEditing = !isEditing" *ngIf="!isEditing">
+      <span class="material-icons">add</span>
       Add New Advertisement
     </button>
   </div>
 
   <div class="error-message" *ngIf="errorMessage">
-    {{ errorMessage }}
+    <div class="error-icon">
+      <span class="material-icons">error</span>
+    </div>
+    <div class="error-content">
+      <h4>Error</h4>
+      <p>{{ errorMessage }}</p>
+    </div>
   </div>
 
   <!-- Create/Edit Form -->
   <div class="form-container" *ngIf="isEditing">
-    <h3>{{ selectedAdvertisement ? 'Edit Advertisement' : 'Create New Advertisement' }}</h3>
-    <form (ngSubmit)="selectedAdvertisement ? updateAdvertisement() : createAdvertisement()">
+    <div class="form-header">
+      <h3>{{ selectedAdvertisement ? 'Edit Advertisement' : 'Create New Advertisement' }}</h3>
+    </div>
+    <form class="advertisement-form" (ngSubmit)="selectedAdvertisement ? updateAdvertisement() : createAdvertisement()">
       <div class="form-group">
         <label for="title">Title *</label>
         <input
@@ -22,7 +39,8 @@
           [(ngModel)]="currentTitle"
           name="title"
           required
-          class="form-control">
+          class="form-control"
+          placeholder="Enter advertisement title">
       </div>
 
       <div class="form-group">
@@ -32,7 +50,8 @@
           [(ngModel)]="currentDescription"
           name="description"
           rows="3"
-          class="form-control"></textarea>
+          class="form-control"
+          placeholder="Enter advertisement description"></textarea>
       </div>
 
       <div class="form-group">
@@ -44,7 +63,10 @@
           accept="image/*"
           class="form-control">
         <div class="image-preview" *ngIf="isSelectedImageString">
-          <img [src]="selectedAdvertisement.image" alt="Current image" class="preview-img">
+          <div class="preview-container">
+            <img [src]="selectedAdvertisement.image" alt="Current image" class="preview-img">
+            <p class="preview-label">Current Image</p>
+          </div>
         </div>
       </div>
 
@@ -55,15 +77,17 @@
             [(ngModel)]="currentIsActive"
             name="is_active">
           <span class="checkmark"></span>
-          Active
+          Active Advertisement
         </label>
       </div>
 
       <div class="form-actions">
         <button type="button" class="btn btn-secondary" (click)="selectedAdvertisement ? cancelEdit() : isEditing = false">
+          <span class="material-icons">cancel</span>
           Cancel
         </button>
         <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+          <span class="material-icons">{{ selectedAdvertisement ? 'update' : 'add' }}</span>
           {{ selectedAdvertisement ? 'Update' : 'Create' }} Advertisement
         </button>
       </div>
@@ -72,40 +96,60 @@
 
   <!-- Advertisements List -->
   <div class="advertisements-list">
-    <div class="loading" *ngIf="isLoading && advertisements.length === 0">
-      Loading advertisements...
+    <div class="loading-state" *ngIf="isLoading && advertisements.length === 0">
+      <div class="loading-spinner">
+        <span class="material-icons spinning">refresh</span>
+      </div>
+      <p>Loading advertisements...</p>
     </div>
 
     <div class="advertisement-card" *ngFor="let ad of advertisements">
       <div class="card-header">
-        <h4>{{ ad.title }}</h4>
+        <div class="ad-icon">
+          <span class="material-icons">campaign</span>
+        </div>
         <div class="card-actions">
-          <button class="btn btn-sm btn-edit" (click)="editAdvertisement(ad)">Edit</button>
-          <button class="btn btn-sm btn-delete" (click)="deleteAdvertisement(ad.id)">Delete</button>
+          <button class="action-btn edit" (click)="editAdvertisement(ad)" title="Edit advertisement">
+            <span class="material-icons">edit</span>
+          </button>
+          <button class="action-btn delete" (click)="deleteAdvertisement(ad.id)" title="Delete advertisement">
+            <span class="material-icons">delete</span>
+          </button>
         </div>
       </div>
 
-      <div class="card-body">
+      <div class="card-content">
+        <h4>{{ ad.title }}</h4>
+
         <div class="image-container" *ngIf="ad.image">
           <img [src]="ad.image" alt="{{ ad.title }}" class="ad-image">
         </div>
 
         <p class="description" *ngIf="ad.description">{{ ad.description }}</p>
 
-        <div class="status">
+        <div class="ad-meta">
           <span class="status-badge" [class.active]="ad.is_active" [class.inactive]="!ad.is_active">
+            <span class="material-icons">{{ ad.is_active ? 'check_circle' : 'cancel' }}</span>
             {{ ad.is_active ? 'Active' : 'Inactive' }}
           </span>
-        </div>
-
-        <div class="created-date">
-          Created: {{ ad.created_at | date:'medium' }}
+          <div class="created-date">
+            <span class="material-icons">schedule</span>
+            Created: {{ ad.created_at | date:'medium' }}
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="no-advertisements*ngIf="!isLoading && advertisements.length === 0">
-      No advertisements found. Create your first advertisement!
+    <div class="empty-state" *ngIf="!isLoading && advertisements.length === 0">
+      <div class="empty-icon">
+        <span class="material-icons">campaign</span>
+      </div>
+      <h3>No Advertisements Yet</h3>
+      <p>Create your first advertisement to get started.</p>
+      <button class="btn btn-primary" (click)="isEditing = true">
+        <span class="material-icons">add</span>
+        Create First Advertisement
+      </button>
     </div>
   </div>
 </div>

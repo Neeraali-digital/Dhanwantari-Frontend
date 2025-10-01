@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdvertisementService } from '../../core/services/advertisement.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   slideInterval: any;
+  slides: any[] = [];
 
   specialties = [
     { name: 'General Medicine', icon: 'health_and_safety', description: 'Comprehensive primary healthcare', image: '../../../assets/images/general_medicine.png' },
@@ -61,9 +63,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     { name: 'Malleshwaram', time: '40-55 mins' }
   ];
 
+  constructor(private advertisementService: AdvertisementService) {}
 
   ngOnInit() {
-    this.startSlideShow();
+    this.advertisementService.getAdvertisements().subscribe({
+      next: (ads: any[]) => {
+        const activeAds = ads.filter(ad => ad.is_active);
+        const adSlides = activeAds.map(ad => ({
+          name: ad.title,
+          description: ad.description || '',
+          image: ad.image.startsWith('http') ? ad.image : 'http://localhost:8000' + ad.image
+        }));
+        this.slides = [...this.specialties, ...adSlides];
+        this.startSlideShow();
+      },
+      error: (error) => {
+        console.error('Error fetching advertisements:', error);
+        this.slides = [...this.specialties];
+        this.startSlideShow();
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -79,11 +98,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.specialties.length;
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
   }
 
   prevSlide() {
-    this.currentSlide = this.currentSlide === 0 ? this.specialties.length - 1 : this.currentSlide - 1;
+    this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
   }
 
   goToSlide(index: number) {

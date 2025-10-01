@@ -16,24 +16,24 @@
     <h2 class="section-title">Our Medical Specialties</h2>
     <div class="slider-container">
       <button class="slider-btn prev !bg-primary" (click)="prevSlide()">‹</button>
-      <div class="slider bg-white">
-        <div class="slide-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
-          <div class="slide" *ngFor="let specialty of specialties">
-            <div class="specialty-card " [style.backgroundImage]="'url(' + specialty.image + ')'">
-              <div class="specialty-content">
-                <h3>{{ specialty.name }}</h3>
-                <p>{{ specialty.description }}</p>
-              </div>
+    <div class="slider bg-white">
+      <div class="slide-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+        <div class="slide" *ngFor="let slide of slides">
+          <div class="specialty-card " [style.backgroundImage]="'url(' + slide.image + ')'">
+            <div class="specialty-content">
+              <h3>{{ slide.name }}</h3>
+              <p>{{ slide.description }}</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <button class="slider-btn next !bg-primary" (click)="nextSlide()">›</button>
     </div>
     <div class="slider-dots">
-      <span 
-        class="dot text-priamary" 
-        *ngFor="let specialty of specialties; let i = index"
+      <span
+        class="dot text-priamary"
+        *ngFor="let slide of slides; let i = index"
         [class.active]="i === currentSlide"
         (click)="goToSlide(i)">
       </span>
