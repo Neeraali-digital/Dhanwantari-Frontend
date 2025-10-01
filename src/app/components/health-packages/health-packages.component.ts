@@ -65,22 +65,22 @@ import { CheckupPackageService } from '../../core/services/checkup-package.servi
           </h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
             <div style="text-align: center; padding: 24px;">
-              <div style="font-size: 48px; margin-bottom: 16px;">🏠</div>
+              <div style="font-size: 48px; margin-bottom: 16px;"><span class="material-icons text-primary" style="font-size: 48px;">home</span></div>
               <h4 style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 12px;">Home Sample Collection</h4>
               <p style="color: #64748b; line-height: 1.6;">Convenient sample collection from your home with trained phlebotomists.</p>
             </div>
             <div style="text-align: center; padding: 24px;">
-              <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
+              <div style="font-size: 48px; margin-bottom: 16px;"><span class="material-icons text-primary" style="font-size: 45px;">desktop_windows</span></div>
               <h4 style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 12px;">Digital Reports</h4>
               <p style="color: #64748b; line-height: 1.6;">Get your reports digitally with detailed analysis and recommendations.</p>
             </div>
             <div style="text-align: center; padding: 24px;">
-              <div style="font-size: 48px; margin-bottom: 16px;">👨‍⚕️</div>
+              <div style="font-size: 48px; margin-bottom: 16px;"><span class="material-icons text-primary" style="font-size: 48px;">beenhere</span></div>
               <h4 style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 12px;">Expert Consultation</h4>
               <p style="color: #64748b; line-height: 1.6;">Free consultation with our specialists to discuss your health reports.</p>
             </div>
             <div style="text-align: center; padding: 24px;">
-              <div style="font-size: 48px; margin-bottom: 16px;">🔄</div>
+              <div style="font-size: 48px; margin-bottom: 16px;"><span class="material-icons text-primary" style="font-size: 48px;">favorite</span></div>
               <h4 style="font-size: 18px; font-weight: 600; color: #1e293b; margin-bottom: 12px;">Follow-up Care</h4>
               <p style="color: #64748b; line-height: 1.6;">Comprehensive follow-up care and health monitoring programs.</p>
             </div>
