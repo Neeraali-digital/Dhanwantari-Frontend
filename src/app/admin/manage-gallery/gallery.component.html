@@ -58,7 +58,7 @@
       </div>
       <div *ngIf="compressing" class="status-indicator">Compressing image...</div>
       <div *ngIf="uploadLoading" class="status-indicator">{{ editingImage ? 'Updating' : 'Uploading' }} image...</div>
-      <button type="submit" [disabled]="!(editingImage ? editingImage.title : newImage.title) || (!editingImage && !selectedFile) || compressing || uploadLoading">{{ editingImage ? 'Update' : 'Upload' }}</button>
+      <button type="submit" [disabled]="!(editingImage ? editingImage.title : formData.title) || (!editingImage && !selectedFile) || compressing || uploadLoading">{{ editingImage ? 'Update' : 'Upload' }}</button>
       <button type="button" *ngIf="editingImage" (click)="cancelEdit()">Cancel</button>
     </form>
   </div>

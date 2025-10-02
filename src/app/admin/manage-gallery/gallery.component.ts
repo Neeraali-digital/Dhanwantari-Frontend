@@ -109,18 +109,18 @@ export class ManageGalleryComponent implements OnInit {
   }
 
   uploadImage() {
-    if (!this.selectedFile || !this.newImage.title) return;
+    if (!this.selectedFile || !this.formData.title) return;
 
     this.uploadLoading = true;
     const formData = new FormData();
-    formData.append('title', this.newImage.title);
-    formData.append('description', this.newImage.description);
+    formData.append('title', this.formData.title);
+    formData.append('description', this.formData.description);
     formData.append('image', this.compressedFile || this.selectedFile);
 
     this.galleryService.createGalleryImage(formData).subscribe({
       next: (image) => {
         this.galleryImages.unshift(image);
-        this.newImage = { title: '', description: '' };
+        this.formData = { title: '', description: '' };
         this.selectedFile = null;
         this.compressedFile = null;
         this.imagePreview = null;
