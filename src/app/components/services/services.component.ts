@@ -24,46 +24,70 @@ export class ServicesComponent implements OnInit {
     },
     {
       id: 'static-2',
+      name: 'Trauma care',
+      description: 'Rapid, life-saving care for severe injuries from accidents, violence, or disasters. Our dedicated Trauma Team provides immediate stabilization, surgery, and intensive care.',
+      icon: 'personal_injury'
+    },
+    {
+      id: 'static-3',
       name: 'Critical Care',
       description: 'Intensive care unit with advanced monitoring, life support systems, and specialized medical team for critically ill patients.',
       icon: 'monitor_heart'
     },
     {
-      id: 'static-3',
-      name: 'Obstetrics and Gynecology',
-      description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
-      icon: 'pregnant_woman'
+      id: 'static-4',
+      name: 'Orthopedics',
+      description: 'Expert care for your musculoskeletal system, including bones, joints, ligaments, and tendons. We restore mobility with surgery, rehabilitation, and non-surgical treatment.',
+      icon: 'healing'
     },
     {
-      id: 'static-4',
+      id: 'static-5',
+      name: 'Paediatrics',
+      description: 'Comprehensive medical care for infants, children, and adolescents, focusing on growth, development, and preventive health. We manage acute and chronic conditions.',
+      icon: 'child_care'
+    },
+     {
+      id: 'static-6',
       name: 'Geriatrics',
       description: 'Specialized healthcare for elderly patients focusing on age-related conditions, mobility, cognitive health, and quality of life.',
       icon: 'elderly_woman'
     },
+     {
+      id: 'static-7',
+      name: 'Urology',
+      description: 'Specialized care for the urinary tract in all ages, and the male reproductive system. We treat kidney stones, cancer, and incontinence issues',
+      icon: 'science'
+    },
     {
-      id: 'static-5',
+      id: 'static-8',
       name: 'Physiotherapy',
       description: 'Rehabilitation services for injury recovery, pain management, mobility improvement, and sports injury treatment.',
-      icon: 'fitness_center'
+      icon: 'accessible'
     },
     {
-      id: 'static-6',
+      id: 'static-9',
       name: 'Ultrasound Scanning',
       description: 'Advanced ultrasound imaging services for diagnostic purposes with latest technology and experienced technicians.',
-      icon: 'analytics'
+      icon: 'scanner'
     },
     {
-      id: 'static-7',
+      id: 'static-10',
       name: 'X-ray',
       description: 'Digital X-ray services for bone fractures, chest imaging, and other diagnostic needs with quick results.',
       icon: 'fullscreen'
     },
     {
-      id: 'static-8',
+      id: 'static-11',
       name: 'Laboratory',
       description: 'Complete laboratory testing services including blood tests, urine analysis, and other diagnostic tests with accurate results.',
       icon: 'biotech'
-    }
+    },
+     {
+      id: 'static-12',
+      name: 'Obstetrics and Gynecology',
+      description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
+      icon: 'pregnant_woman'
+    },
   ];
 
   constructor(private serviceService: ServiceService) {}

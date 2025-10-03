@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     { title: 'Get Delivery', description: 'Receive your medicines at your doorstep within 30-60 minutes' }
   ];
 
+  showDeliveryAreas = false;
+
   deliveryAreas = [
     { name: 'Chikkabanavara', time: '15-30 mins' },
     { name: 'Jalahalli', time: '20-35 mins' },
@@ -115,5 +117,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   orderMedicine() {
     window.location.href = 'tel:+919036425149';
+  }
+
+  toggleDeliveryAreas() {
+    this.showDeliveryAreas = !this.showDeliveryAreas;
+  }
+
+  scrollToPackages() {
+    const element = document.getElementById('health-packages');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  openWhatsApp() {
+    window.open('https://wa.me/+919606654149', '_blank');
   }
 }

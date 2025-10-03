@@ -15,6 +15,7 @@ export class BlogComponent implements OnInit {
   showAll = signal(false);
   selectedPost: any = null;
   showModal = false;
+  today = new Date();
 
   constructor(private blogService: BlogService) {}
 
