@@ -82,12 +82,12 @@ export class ServicesComponent implements OnInit {
       description: 'Complete laboratory testing services including blood tests, urine analysis, and other diagnostic tests with accurate results.',
       icon: 'biotech'
     },
-     {
-      id: 'static-12',
-      name: 'Obstetrics and Gynecology',
-      description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
-      icon: 'pregnant_woman'
-    },
+    //  {
+    //   id: 'static-12',
+    //   name: 'Obstetrics and Gynecology',
+    //   description: 'Comprehensive womens health services including prenatal care, delivery, gynecological treatments, and reproductive health.',
+    //   icon: 'pregnant_woman'
+    // },
   ];
 
   constructor(private serviceService: ServiceService) {}
