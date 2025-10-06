@@ -1,12 +1,16 @@
-<!-- Hero Section -->
-<section class="hero !bg-cover" style="background-image: url('../../../assets/bg.jpg'); background-position: center; background-size: cover;">
-  <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 8px; max-width: 90%; margin: 0 auto;">
-    <h1 style="font-size: clamp(2rem, 8vw, 4.5rem); font-weight: 800; color: white; margin-bottom: 1rem; line-height: 1.1; text-align: center;">Dhanwantari Hospital</h1>
-    <p class="hero-description" style="font-size: clamp(1rem, 3vw, 1.2rem); text-align: center; margin-bottom: 2rem;">Providing world-class healthcare with modern facilities and expert medical professionals</p>
-    <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <button class="rounded-md font-semibold bg-primary" (click)="makeCall()" style="padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1rem);">Book Appointment</button>
-      <button class="btn-secondary" style="padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1rem);">Emergency Care</button>
+<section class="hero-slider">
+  <div class="slide" *ngFor="let slide of heroSlides; let i = index" [class.active]="i === currentHeroSlide" [style.backgroundImage]="'url(' + slide.image + ')'">
+    <div class="slide-overlay"></div>
+    <div class="slide-text" [class.show]="i === currentHeroSlide">
+      <p *ngFor="let line of slide.text.split('\n')">{{ line }}</p>
+      <div class="slide-buttons">
+        <button class="slide-btn" (click)="makeCall()" *ngIf="i === 0">Book Appointment</button>
+        <button class="slide-btn" (click)="orderMedicine()" *ngIf="i === 1">Order Medicine</button>
+      </div>
     </div>
+  </div>
+  <div class="hero-dots">
+    <span class="dot" [class.active]="i === currentHeroSlide" (click)="goToHeroSlide(i)" *ngFor="let slide of heroSlides; let i = index"></span>
   </div>
 </section>
 

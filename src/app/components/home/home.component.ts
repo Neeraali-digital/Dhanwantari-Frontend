@@ -14,6 +14,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   slideInterval: any;
   slides: any[] = [];
 
+  currentHeroSlide = 0;
+  heroSlideInterval: any;
+  heroSlides = [
+    {
+      image: '../../../assets/slide1.png',
+      text: 'Your Health, Our Priority.\nCompassionate Care. Advanced Treatment. Trusted Expertise.\nCare. Compassion. Community'
+    },
+    {
+      image: '../../../assets/slide2.png',
+      text: '24/7 Pharmacy – Free Home Delivery at Your Doorstep'
+    }
+  ];
+
   specialties = [
     { name: 'General Medicine', icon: 'health_and_safety', description: 'Comprehensive primary healthcare', image: '../../../assets/images/general_medicine.png' },
     { name: 'Critical Care', icon: 'local_hospital', description: 'Intensive care and monitoring', image: '../../../assets/images/critical_care.png' },
@@ -68,6 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private advertisementService: AdvertisementService) {}
 
   ngOnInit() {
+    this.startHeroSlideShow();
     this.advertisementService.getAdvertisements().subscribe({
       next: (ads: any[]) => {
         const activeAds = ads.filter(ad => ad.is_active);
@@ -91,6 +105,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.slideInterval) {
       clearInterval(this.slideInterval);
     }
+    if (this.heroSlideInterval) {
+      clearInterval(this.heroSlideInterval);
+    }
   }
 
   startSlideShow() {
@@ -109,6 +126,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   goToSlide(index: number) {
     this.currentSlide = index;
+  }
+
+  startHeroSlideShow() {
+    this.heroSlideInterval = setInterval(() => {
+      this.nextHeroSlide();
+    }, 3000);
+  }
+
+  nextHeroSlide() {
+    this.currentHeroSlide = (this.currentHeroSlide + 1) % this.heroSlides.length;
+  }
+
+  goToHeroSlide(index: number) {
+    this.currentHeroSlide = index;
   }
 
   makeCall() {
