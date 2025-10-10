@@ -34,12 +34,14 @@
       <button class="slider-btn next !bg-primary" (click)="nextSlide()">›</button>
     </div>
     <div class="slider-dots">
-      <span
-        class="dot text-priamary"
-        *ngFor="let slide of slides; let i = index"
-        [class.active]="i === currentSlide"
-        (click)="goToSlide(i)">
-      </span>
+      <div class="dot-container" *ngFor="let slide of slides; let i = index">
+        <span
+          class="dot text-primary"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)">
+        </span>
+        <div class="progress-bar" [style.width.%]="i === currentSlide ? progressPercent : 0"></div>
+      </div>
     </div>
   </div>
 </section>

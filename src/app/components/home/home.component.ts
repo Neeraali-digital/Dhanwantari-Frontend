@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdvertisementService } from '../../core/services/advertisement.service';
 
@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   slideInterval: any;
   slides: any[] = [];
+  isSlidesPaused = false;
+  progressPercent = 0;
+  progressInterval: any;
 
   currentHeroSlide = 0;
   heroSlideInterval: any;
@@ -26,6 +29,36 @@ export class HomeComponent implements OnInit, OnDestroy {
       text: '24/7 Pharmacy – Free Home Delivery at Your Doorstep'
     }
   ];
+  isHeroPaused = false;
+
+  @HostListener('mouseenter', ['$event'])
+  onMouseEnter(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.closest('.slider-container')) {
+      this.pauseSlideShow();
+    } else if (target.closest('.hero-slider')) {
+      this.pauseHeroSlideShow();
+    }
+  }
+
+  @HostListener('mouseleave', ['$event'])
+  onMouseLeave(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.closest('.slider-container')) {
+      this.resumeSlideShow();
+    } else if (target.closest('.hero-slider')) {
+      this.resumeHeroSlideShow();
+    }
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'ArrowLeft') {
+      this.prevSlide();
+    } else if (event.key === 'ArrowRight') {
+      this.nextSlide();
+    }
+  }
 
   specialties = [
     { name: 'General Medicine', icon: 'health_and_safety', description: 'Comprehensive primary healthcare', image: '../../../assets/images/general_medicine.png' },
@@ -108,24 +141,41 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.heroSlideInterval) {
       clearInterval(this.heroSlideInterval);
     }
+    if (this.progressInterval) {
+      clearInterval(this.progressInterval);
+    }
   }
 
   startSlideShow() {
     this.slideInterval = setInterval(() => {
       this.nextSlide();
     }, 4000);
+    this.startProgress();
+  }
+
+  startProgress() {
+    this.progressPercent = 0;
+    this.progressInterval = setInterval(() => {
+      this.progressPercent += 1;
+      if (this.progressPercent >= 100) {
+        this.progressPercent = 0;
+      }
+    }, 40);
   }
 
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    this.progressPercent = 0;
   }
 
   prevSlide() {
     this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+    this.progressPercent = 0;
   }
 
   goToSlide(index: number) {
     this.currentSlide = index;
+    this.progressPercent = 0;
   }
 
   startHeroSlideShow() {
@@ -140,6 +190,36 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   goToHeroSlide(index: number) {
     this.currentHeroSlide = index;
+  }
+
+  pauseSlideShow() {
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+      this.slideInterval = null;
+    }
+    if (this.progressInterval) {
+      clearInterval(this.progressInterval);
+      this.progressInterval = null;
+    }
+  }
+
+  resumeSlideShow() {
+    if (!this.slideInterval) {
+      this.startSlideShow();
+    }
+  }
+
+  pauseHeroSlideShow() {
+    if (this.heroSlideInterval) {
+      clearInterval(this.heroSlideInterval);
+      this.heroSlideInterval = null;
+    }
+  }
+
+  resumeHeroSlideShow() {
+    if (!this.heroSlideInterval) {
+      this.startHeroSlideShow();
+    }
   }
 
   makeCall() {

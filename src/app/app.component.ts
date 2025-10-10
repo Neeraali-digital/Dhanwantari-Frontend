@@ -21,9 +21,51 @@ import { LoaderComponent } from './components/loader/loader.component';
 export class AppComponent implements OnInit {
   isLoading = true;
 
+  private staticImages = [
+    'assets/slide1.jpg',
+    'assets/images/pharmacy.jpg',
+    'assets/images/general_medicine.png',
+    'assets/images/critical_care.png',
+    'assets/images/obstetrics_and_gynecology.png',
+    'assets/images/geriatrics.png',
+    'assets/images/emergency.png',
+    'assets/images/surgery.png'
+  ];
+
   ngOnInit() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
+    this.preloadImages().then(() => {
+      // Ensure minimum 3 seconds loading time
+      const minLoadTime = 3000;
+      const preloadTime = Date.now() - this.startTime;
+      const remainingTime = minLoadTime - preloadTime;
+      
+      if (remainingTime > 0) {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, remainingTime);
+      } else {
+        this.isLoading = false;
+      }
+    });
+  }
+
+  private startTime = Date.now();
+
+  private preloadImages(): Promise<void> {
+    const promises = this.staticImages.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(null);
+        img.onerror = () => {
+          console.warn(`Failed to preload image: ${src}`);
+          resolve(null); // Continue even if one fails
+        };
+        img.src = src;
+      });
+    });
+
+    return Promise.all(promises).then(() => {
+      console.log('All static images preloaded');
+    });
   }
 }
