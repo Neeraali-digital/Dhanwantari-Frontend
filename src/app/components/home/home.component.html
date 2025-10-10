@@ -1,6 +1,6 @@
 <section class="hero-slider">
   <div class="slide" *ngFor="let slide of heroSlides; let i = index" [class.active]="i === currentHeroSlide" [style.backgroundImage]="'url(' + slide.image + ')'">
-    <div class="slide-overlay"></div>
+   
     <div class="slide-text" [class.show]="i === currentHeroSlide">
       <p *ngFor="let line of slide.text.split('\n')">{{ line }}</p>
       <div class="slide-buttons">
@@ -13,7 +13,6 @@
     <span class="dot" [class.active]="i === currentHeroSlide" (click)="goToHeroSlide(i)" *ngFor="let slide of heroSlides; let i = index"></span>
   </div>
 </section>
-
 <!-- Specialties Slider -->
 <section class="specialties bg-white">
   <div class="container">

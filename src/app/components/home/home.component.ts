@@ -18,11 +18,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   heroSlideInterval: any;
   heroSlides = [
     {
-      image: '../../../assets/slide1.png',
+      image: '../../../assets/slide1.jpg',
       text: 'Your Health, Our Priority.\nCompassionate Care. Advanced Treatment. Trusted Expertise.\nCare. Compassion. Community'
     },
     {
-      image: '../../../assets/slide2.png',
+      image: '../../../assets/images/pharmacy.jpg',
       text: '24/7 Pharmacy – Free Home Delivery at Your Doorstep'
     }
   ];
